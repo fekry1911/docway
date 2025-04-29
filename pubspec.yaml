@@ -36,10 +36,16 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.1.0
+  easy_localization: ^3.0.7+1
+  flutter_launcher_icons: ^0.13.1
+
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -63,8 +69,12 @@ flutter:
   assets:
     - assets/icons/background.svg
     - assets/icons/logo.svg
+    - assets/icons/logos.png
     - assets/icons/doctor.svg
     - assets/doctor.png
+    - assets/translations/en.json
+    - assets/translations/ar.json
+    - assets/logos.gif
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -92,3 +102,9 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/logos.png" # ضع المسار الصحيح لأيقونة تطبيقك
