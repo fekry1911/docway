@@ -1,3 +1,5 @@
+import 'package:docway/core/generated/locale_keys.g.dart';
+import 'package:docway/core/theme/colors/colors.dart';
 import 'package:docway/features/on_boarding/presentation/widgets/background_text.dart';
 import 'package:docway/features/on_boarding/presentation/widgets/logo_and_name.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -6,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/shared_widgets/shared_button.dart';
 import '../../../core/theme/text_themes/text.dart';
+import '../../login_screen/presentation/login.dart';
 
 class OnBoarding extends StatelessWidget {
   const OnBoarding({super.key});
@@ -14,7 +17,7 @@ class OnBoarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.whiteColor,
       body: SafeArea(
         child: Column(
           children: [
@@ -40,7 +43,7 @@ class OnBoarding extends StatelessWidget {
                 ),
                 Text(
                   "on_boarding.title".tr(),
-                  style: TextThemes.TextBlueBold32,
+                  style: TextThemes.textBlueBold32,
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -53,11 +56,13 @@ class OnBoarding extends StatelessWidget {
                 children: [
                   Text(
                     "on_boarding.info".tr(),
-                    style: TextThemes.TextGreyRegular12,
+                    style: TextThemes.textGreyRegular12,
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 30.h,),
-                  BlueButtonWithRaduis(text: "button_text",)
+                  BlueButtonWithRaduis(text: LocaleKeys.on_boarding_button_text,onTab:(){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+                  },)
                 ],
               ),
             ),

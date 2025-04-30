@@ -15,7 +15,7 @@ class LogoAndName  extends StatelessWidget {
         SvgPicture.asset("assets/icons/logo.svg"),
         Container(
             margin: EdgeInsets.symmetric(horizontal: 10.h),
-            child: Text("DocWay",style: TextThemes.TextStyle30Bold,))
+            child: Text("DocWay",style: TextThemes.textStyle30Bold,))
       ],
     );
 
