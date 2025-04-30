@@ -19,6 +19,17 @@ class CodegenLoader extends AssetLoader{
     "title": "أفضل تطبيق \n لحجز مواعيد الأطباء",
     "info": "مع DocWay، نظّم كل مواعيدك الطبية بسهولة واستمتع بتجربة جديدة كليًا في عالم الرعاية الصحية.",
     "button_text": "هيا لنبدا"
+  },
+  "auth": {
+    "Welcome": "مرحبًا بعودتك",
+    "summry": "نحن متحمسون لعودتك، لا يسعنا الانتظار لمعرفة ما كنت تفعله منذ آخر مرة سجلت فيها الدخول.",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "forgot_password": "هل نسيت كلمة المرور؟",
+    "login": "تسجيل الدخول",
+    "terms": "بتسجيل الدخول، فإنك توافق على الشروط والأحكام وسياسة الخصوصية الخاصة بنا.",
+    "not_have_account": "ليس لديك حساب بعد؟",
+    "sign_up": "إنشاء حساب"
   }
 };
 static const Map<String,dynamic> _en = {
@@ -26,6 +37,17 @@ static const Map<String,dynamic> _en = {
     "title": "Best Doctor \n Appointment App",
     "info": "Manage and schedule all of your medical appointments easily with DocWay to get a new experience.",
     "button_text": "Get Started"
+  },
+  "auth": {
+    "Welcome": "Welcome Back",
+    "summry": "We're excited to have you back, can't wait to see what you've been up to since you last logged in.",
+    "email": "Email",
+    "password": "Password",
+    "forgot_password": "Forgot Password?",
+    "login": "Login",
+    "terms": "By logging, you agree to our  Terms & Conditions and PrivacyPolicy.",
+    "not_have_account": "Already have an account yet?",
+    "sign_up": "Sign Up"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};

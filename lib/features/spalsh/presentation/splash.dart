@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,14 +20,6 @@ class SpashScreen extends StatefulWidget {
 
 class _SpashScreenState extends State<SpashScreen> {
   @override
-  void initState() {
-    // TODO: implement initState
-
-    Timer(Duration(seconds: 3), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => OnBoarding()));
-    });
-    super.initState();
-  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,7 +34,16 @@ class _SpashScreenState extends State<SpashScreen> {
               SvgPicture.asset("assets/icons/logo.svg"),
               Container(
                   margin: EdgeInsets.symmetric(horizontal: 10.h),
-                  child: Text("DocWay",style: TextThemes.TextStyle30Bold,))
+                  child: AnimatedTextKit(
+                    totalRepeatCount: 1,
+                    onFinished: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>OnBoarding()));
+                    },
+                    animatedTexts: [
+                    TypewriterAnimatedText(
+                      speed: Duration(milliseconds: 300),
+                      "DocWay", textStyle: TextThemes.textStyle30Bold,)
+                  ],))
             ],
           )
         ],

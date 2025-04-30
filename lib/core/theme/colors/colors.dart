@@ -1,0 +1,15 @@
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+
+class AppColors{
+  static Color mainBlueColor=Color(0xff247CFF);
+  static Color greyColor=Color(0xff757575);
+  static Color whiteColor=Color(0xffFFFFFF);
+  static Color darkBlue=Color(0xffC2C2C2);
+  static Color lightGrey=Color(0xffFDFDFF);
+  static Color lighterGrey=Color(0xffEDEDED);
+  static Color strongGrey=Color(0xffA9B2B9);
+  static Color lightBlack=Color(0xff242424);
+
+}

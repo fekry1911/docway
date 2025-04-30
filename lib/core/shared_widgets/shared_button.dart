@@ -6,23 +6,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../theme/text_themes/text.dart';
 
 class BlueButtonWithRaduis extends StatelessWidget {
-   BlueButtonWithRaduis({super.key,required this.text});
+   BlueButtonWithRaduis({super.key,required this.text,required this.onTab});
    String? text;
+   void Function() onTab;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 311.w,
       height: 52.h,
-      child: MaterialButton(onPressed: (){
-        context.locale==Locale('ar')?context.setLocale(Locale('en')):context.setLocale(Locale('ar'));
-      },
+      child: MaterialButton(onPressed: onTab,
           color: Colors.blue,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.r)
 
           ),
-          child: Text("on_boarding.$text".tr(),style: TextThemes.TextWhiteSemi16,)
+          child: Text("$text".tr(),style: TextThemes.textWhiteSemi16,)
       ),
     )
     ;

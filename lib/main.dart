@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/generated/codegen_loader.g.dart';
+import 'features/login_screen/presentation/login.dart';
 import 'features/on_boarding/presentation/on_boarding.dart';
 import 'features/spalsh/presentation/splash.dart';
 
@@ -39,14 +40,17 @@ class MyApp extends StatelessWidget {
           locale: context.locale,
           debugShowCheckedModeBanner: false,
           title: 'First Method',
+
           theme: ThemeData(
+            scaffoldBackgroundColor: Colors.white,
+            fontFamily: 'cairo',
             primarySwatch: Colors.blue,
             textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
           ),
           home: child,
         );
       },
-      child: SpashScreen(),
+      child: LoginScreen(),
     );
   }
 }
