@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'core/di/debendency_injection.dart';
 import 'core/generated/codegen_loader.g.dart';
 import 'features/login_screen/presentation/login.dart';
 import 'features/on_boarding/presentation/on_boarding.dart';
@@ -9,6 +10,7 @@ import 'features/spalsh/presentation/splash.dart';
 
 
 void main() async {
+  setup();
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 
@@ -50,7 +52,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: LoginScreen(),
+      child: SpashScreen(),
     );
   }
 }
