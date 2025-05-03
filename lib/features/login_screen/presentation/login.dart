@@ -1,17 +1,28 @@
 import 'package:docway/core/generated/locale_keys.g.dart';
 import 'package:docway/core/theme/colors/colors.dart';
+import 'package:docway/features/login_screen/logic/cubit/login_states.dart';
 import 'package:docway/features/login_screen/presentation/widgets/already_have_text.dart';
+import 'package:docway/features/login_screen/presentation/widgets/email_password.dart';
+import 'package:docway/features/login_screen/presentation/widgets/errr_setup.dart';
 import 'package:docway/features/login_screen/presentation/widgets/term_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/shared_widgets/shared_button.dart';
-import '../../../core/shared_widgets/shared_text_form_field.dart';
 import '../../../core/theme/text_themes/text.dart';
+import '../../on_boarding/presentation/on_boarding.dart';
+import '../logic/cubit/login_cubit.dart';
 
-class LoginScreen extends StatelessWidget {
-   LoginScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -19,59 +30,92 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 50.h),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              LocaleKeys.auth_Welcome.tr(),
-              style: TextThemes.textBold24Blue,
-            ),
-            SizedBox(height: 8.h),
-            Text(
-              LocaleKeys.auth_summry.tr(),
-              style: TextThemes.textGreyRegular14,
-            ),
-            SizedBox(height: 36.h),
-            Form(
-              key:_formKey,
-              child: Column(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                LocaleKeys.auth_Welcome.tr(),
+                style: TextThemes.textBold24Blue,
+              ),
+              SizedBox(height: 8.h),
+              Text(
+                LocaleKeys.auth_summry.tr(),
+                style: TextThemes.textGreyRegular14,
+              ),
+              SizedBox(height: 36.h),
+              EmailAndPassword(),
+              Row(
                 children: [
-                  SharedTextFormField(
-                    hintText: LocaleKeys.auth_email.tr(),
-                    validator: (String) {},
+                  Checkbox(
+                    value: false,
+                    onChanged: (bool? value) {},
+                    fillColor: MaterialStateProperty.all(Colors.white),
+                    side: BorderSide(color: AppColors.strongGrey),
                   ),
-                  SizedBox(height: 16.h),
-                  SharedTextFormField(
-                    hintText: LocaleKeys.auth_password.tr(),
-                    validator: (String) {},
-                    isObscureText: true,
+                  Text(
+                    LocaleKeys.auth_forgot_password.tr(),
+                    style: TextThemes.font12GreyRegular,
                   ),
-                  SizedBox(height: 16.h),
-                  Row(
-                    children: [
-                      Checkbox(
-                        value: false,
-                        onChanged: (bool? value) {  },
-                        fillColor: MaterialStateProperty.all(Colors.white),
-                        side: BorderSide(color: AppColors.strongGrey),
-                      ),
-                      Text(LocaleKeys.auth_forgot_password.tr(),style: TextThemes.font12GreyRegular,),
-                      Spacer(),
-                      TextButton(onPressed: (){}, child: Text(LocaleKeys.auth_forgot_password.tr(),style: TextThemes.font12BlueRegular,)),
-
-                    ],
+                  Spacer(),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      LocaleKeys.auth_forgot_password.tr(),
+                      style: TextThemes.font12BlueRegular,
+                    ),
                   ),
-                  SizedBox(height: 32.h),
-                  BlueButtonWithRaduis(text: LocaleKeys.auth_login.tr(), onTab: () {  },),
-                  SizedBox(height: 32.h),
-                  TermAndConditions(),
-                  SizedBox(height: 32.h),
-                  AlreadyHaveAccount()
-
                 ],
               ),
-            ),
-          ],
+              SizedBox(height: 32.h),
+              BlueButtonWithRaduis(
+                text: LocaleKeys.auth_login.tr(),
+                onTab: () {
+                  if (context
+                      .read<LoginCubit>()
+                      .formKey
+                      .currentState!
+                      .validate()) {
+                    context.read<LoginCubit>().login();
+
+                    print("done");
+                  }
+                },
+              ),
+              SizedBox(height: 32.h),
+              TermAndConditions(),
+              SizedBox(height: 32.h),
+              AlreadyHaveAccount(),
+              BlocListener<LoginCubit, LoginStates>(
+                child: const SizedBox.shrink(),
+                listener: (context, state) {
+                  state.when(
+                    loading: () {
+                      showDialog(
+                        context: context,
+                        builder:
+                            (context) => Center(
+                              child: CircularProgressIndicator(
+                                color: AppColors.mainBlueColor,
+                              ),
+                            ),
+                      );
+                    },
+                    success: (loginResponseMode) {
+                      print(loginResponseMode.userData.token);
+                      Navigator.pop(context);
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>OnBoarding()));
+                    },
+                    error: (String message) {
+                      setupErrorState(context, message);
+
+                    },
+                    initial: () {},
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

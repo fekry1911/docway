@@ -9,6 +9,4 @@ abstract class LoginStates<T> with _$LoginStates<T>{
   const factory LoginStates.loading() = Loading;
   const factory LoginStates.success(T data) = Success;
   const factory LoginStates.error({required String message}) = Error;
-
-
 }
