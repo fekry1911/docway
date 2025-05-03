@@ -4,6 +4,9 @@ class ApiConst{
 
   static const String login="auth/login";
 
+  static const String register="auth/register";
+
+
 }
 class ApiErrors {
   static const String badRequestError = "badRequestError";
