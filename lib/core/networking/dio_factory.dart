@@ -1,13 +1,15 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import '../local_shared/cache_helper.dart';
+
 class DioFactory {
   /// private constructor as I don't want to allow creating an instance of this class
   DioFactory._();
 
   static Dio? dio;
 
-  static Dio getDio() {
+  static Future<Dio> getDio() async {
     Duration timeOut = const Duration(seconds: 30);
 
     if (dio == null) {
@@ -15,6 +17,7 @@ class DioFactory {
       dio!
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
+      await addDioHeaders();
       addDioInterceptor();
       return dio!;
     } else {
@@ -22,13 +25,38 @@ class DioFactory {
     }
   }
 
+  static Future<void> addDioHeaders() async {
+    final token = CacheHelper.getStringToken(key: 'token');
+    dio?.options.headers = {
+      'Accept': 'application/json',
+      if (token != null && token.isNotEmpty)
+        'Authorization': 'Bearer $token',
+    };
+  }
+  static void setTokenIntoHeaderAfterLogin(String token) {
+    dio?.options.headers = {
+      'Authorization': 'Bearer $token',
+    };
+  }
+
   static void addDioInterceptor() {
-    dio?.interceptors.add(
+    dio?.interceptors.addAll([
       PrettyDioLogger(
-        requestBody: true,
-        requestHeader: true,
         responseHeader: true,
+        responseBody: true,
       ),
-    );
+      InterceptorsWrapper(
+        onError: (DioException e, handler) async {
+          print("!!!!!!!!!!!@@@@@@@@@@@@@@@###############%%%%%%%%%^^^^^^^^^^^^^&&&&&&&&&&&&*********");
+          print("REQUEST HEADERS: ${e.response?.headers}");
+          if (e.response?.statusCode == 401) {
+
+            await CacheHelper.removeString(key: "token");
+          } else {
+            handler.next(e);
+          }
+        },
+      ),
+    ]);
   }
 }

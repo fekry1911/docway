@@ -50,6 +50,9 @@ dependencies:
   pretty_dio_logger: ^1.4.0
   flutter_bloc: ^9.1.0
   get_it: ^8.0.3
+  firebase_core: ^3.13.0
+  easy_debounce: ^2.0.1
+
 
 
 
@@ -83,7 +86,12 @@ flutter:
     - assets/icons/logo.svg
     - assets/icons/logos.png
     - assets/icons/doctor.svg
+    - assets/icons/doctorPhoto.png
     - assets/doctor.png
+    - assets/part/baby.png
+    - assets/part/person.png
+    - assets/part/Kidneys.png
+    - assets/part/Brain.png
     - assets/translations/en.json
     - assets/translations/ar.json
     - assets/logos.gif
