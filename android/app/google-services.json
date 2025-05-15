@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "523147600498",
+    "project_id": "fir-5fd66",
+    "storage_bucket": "fir-5fd66.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:523147600498:android:2e9dbc92ecea66fb0d98eb",
+        "android_client_info": {
+          "package_name": "com.example.docway"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdMmYT0S2-Y9rS_OnJ3KKfxlYxQm04Iiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

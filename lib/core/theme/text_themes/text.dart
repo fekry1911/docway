@@ -76,4 +76,47 @@ class TextThemes{
     fontWeight: FontWeightHelper.regular,
     fontSize: 13.sp,
   );
+
+
+  static TextStyle font18BlackSemiBold=TextStyle(
+    color: AppColors.darkBlack,
+    fontWeight: FontWeightHelper.semiBold,
+    fontSize: 18.sp,
+  );
+
+  static TextStyle font16BlackBold=TextStyle(
+    color: AppColors.darkBlack,
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 16.sp,
+  );
+  static TextStyle font12GreyMedium=TextStyle(
+    color: AppColors.greyColor,
+    fontWeight: FontWeightHelper.medium,
+    fontSize: 12.sp,
+  );
+  static TextStyle font18BlackBold=TextStyle(
+    color: AppColors.darkBlack,
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 18.sp,
+  );
+
+  static TextStyle font11GreyRegular=TextStyle(
+    color: AppColors.darkBlack,
+    fontWeight: FontWeightHelper.regular,
+    fontSize: 11.sp,
+  );
+  static TextStyle font22BlackMedium=TextStyle(
+    color: AppColors.whiteColor,
+    fontWeight: FontWeightHelper.medium,
+    fontSize: 22.sp,
+  );
+  static TextStyle font12BlackRegular=TextStyle(
+    color: AppColors.lightBlack,
+    fontWeight: FontWeightHelper.regular,
+    fontSize: 12.sp,
+  );
+
+
+
+
 }

@@ -1,6 +1,7 @@
 import 'package:docway/core/di/debendency_injection.dart';
 import 'package:docway/core/generated/locale_keys.g.dart';
 import 'package:docway/core/theme/colors/colors.dart';
+import 'package:docway/features/home/presentation/home.dart';
 import 'package:docway/features/login_screen/logic/cubit/login_cubit.dart';
 import 'package:docway/features/on_boarding/presentation/widgets/background_text.dart';
 import 'package:docway/features/on_boarding/presentation/widgets/logo_and_name.dart';

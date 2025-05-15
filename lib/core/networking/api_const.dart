@@ -6,6 +6,13 @@ class ApiConst{
 
   static const String register="auth/register";
 
+  static const String doctors="doctor/index";
+
+  static const String searchDoctors="doctor/doctor-search";
+
+
+
+
 
 }
 class ApiErrors {

@@ -10,8 +10,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/di/debendency_injection.dart';
 import '../../../core/shared_widgets/shared_button.dart';
 import '../../../core/theme/text_themes/text.dart';
+import '../../home_page/logic/cubit/cubit.dart';
+import '../../home_page/presentation/home_pagee.dart';
 import '../../on_boarding/presentation/on_boarding.dart';
 import '../logic/cubit/login_cubit.dart';
 
@@ -103,9 +106,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     success: (loginResponseMode) {
                       print(loginResponseMode.userData.token);
-                      Navigator.pop(context);
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>OnBoarding()));
-                    },
+                      //Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BlocProvider(
+                            create: (BuildContext context) => getIt<DoctorHomeCubit>()..getAllDocs(),
+                            child: HomePage(),
+                          ),
+                        ),
+                      );                    },
                     error: (String message) {
                       setupErrorState(context, message);
 
