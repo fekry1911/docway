@@ -1,22 +1,24 @@
-import 'package:docway/core/generated/locale_keys.g.dart';
-import 'package:docway/core/theme/colors/colors.dart';
-import 'package:docway/features/login_screen/logic/cubit/login_states.dart';
-import 'package:docway/features/login_screen/presentation/widgets/already_have_text.dart';
-import 'package:docway/features/login_screen/presentation/widgets/email_password.dart';
 import 'package:docway/features/login_screen/presentation/widgets/errr_setup.dart';
-import 'package:docway/features/login_screen/presentation/widgets/term_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/di/debendency_injection.dart';
+import '../../../core/generated/locale_keys.g.dart';
 import '../../../core/shared_widgets/shared_button.dart';
+import '../../../core/theme/colors/colors.dart';
 import '../../../core/theme/text_themes/text.dart';
+import '../../home/logic/cubit/doctor_cubit.dart';
+import '../../home/presentation/home.dart';
 import '../../home_page/logic/cubit/cubit.dart';
 import '../../home_page/presentation/home_pagee.dart';
 import '../../on_boarding/presentation/on_boarding.dart';
+import '../../register_screen/presentation/widgets/already_have_text.dart';
+import '../../register_screen/presentation/widgets/email_password.dart';
+import '../../register_screen/presentation/widgets/term_text.dart';
 import '../logic/cubit/login_cubit.dart';
+import '../logic/cubit/login_states.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
@@ -26,8 +28,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     success: (loginResponseMode) {
                       print(loginResponseMode.userData.token);
-                      //Navigator.pop(context);
+                      Navigator.pop(context);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -115,10 +115,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: HomePage(),
                           ),
                         ),
-                      );                    },
+                      );
+                    },
                     error: (String message) {
                       setupErrorState(context, message);
-
                     },
                     initial: () {},
                   );

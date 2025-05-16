@@ -1,5 +1,6 @@
-import 'package:docway/core/theme/text_themes/text.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/theme/text_themes/text.dart';
 
 void setupErrorState(BuildContext context, String error) {
   Navigator.pop(context);

@@ -1,4 +1,3 @@
-import 'package:docway/features/login_screen/data/rebo/login_rebo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -6,6 +5,7 @@ import '../../../../core/const/const.dart';
 import '../../../../core/local_shared/cache_helper.dart';
 import '../../../../core/networking/dio_factory.dart';
 import '../../data/models/login_request_model.dart';
+import '../../data/rebo/login_rebo.dart';
 import 'login_states.dart';
 
 class LoginCubit extends Cubit<LoginStates> {
@@ -25,8 +25,8 @@ class LoginCubit extends Cubit<LoginStates> {
       LoginRequestModel(emailController.text, passwordController.text),
     );
     result.when(
-      success: (loginResponseMode) {
-        CacheHelper.putString(key: 'token', value: loginResponseMode.userData!.token!);
+      success: (loginResponseMode) async {
+       await CacheHelper.putString(key: 'token', value: loginResponseMode.userData!.token!);
         TOKEN=CacheHelper.getStringToken(key: 'token')!;
         DioFactory.setTokenIntoHeaderAfterLogin(TOKEN);
         emit(LoginStates.success(loginResponseMode));

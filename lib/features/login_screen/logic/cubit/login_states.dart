@@ -1,5 +1,4 @@
 
-import 'package:docway/features/login_screen/data/models/login_response_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'login_states.freezed.dart';
 
