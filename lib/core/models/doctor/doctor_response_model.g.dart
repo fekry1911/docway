@@ -12,7 +12,7 @@ DoctorsResponseModel _$DoctorsResponseModelFromJson(
   message: json['message'] as String?,
   data:
       (json['data'] as List<dynamic>?)
-          ?.map((e) => Data2.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Data.fromJson(e as Map<String, dynamic>))
           .toList(),
   status: json['status'] as bool?,
   code: (json['code'] as num?)?.toInt(),
@@ -27,7 +27,7 @@ Map<String, dynamic> _$DoctorsResponseModelToJson(
   'code': instance.code,
 };
 
-Data2 _$DataFromJson(Map<String, dynamic> json) => Data2(
+Data _$DataFromJson(Map<String, dynamic> json) => Data(
   id: (json['id'] as num?)?.toInt(),
   name: json['name'] as String?,
   email: json['email'] as String?,
@@ -52,7 +52,7 @@ Data2 _$DataFromJson(Map<String, dynamic> json) => Data2(
   endTime: json['endTime'] as String?,
 );
 
-Map<String, dynamic> _$DataToJson(Data2 instance) => <String, dynamic>{
+Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
   'id': instance.id,
   'name': instance.name,
   'email': instance.email,

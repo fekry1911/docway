@@ -1,11 +1,14 @@
 import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
-import '../../features/home/data/models/doctor_response_model.dart';
 import '../../features/login_screen/data/models/login_request_model.dart';
 import '../../features/login_screen/data/models/login_response_model.dart';
 import '../../features/register_screen/data/models/register_model.dart';
 import '../../features/register_screen/data/models/register_response_model.dart';
+import '../models/all_specialization/specialization_model.dart';
+import '../models/doctor/doctor_response_model.dart';
+import '../models/id_specialization/specialization_by_id.dart';
 import 'api_const.dart';
 
 part 'api_service.g.dart';
@@ -22,4 +25,16 @@ abstract class ApiService{
 
   @GET(ApiConst.searchDoctors)
   Future<DoctorsResponseModel> searchDoctors(@Query("name") String name);
+
+  @POST(ApiConst.logOut)
+  Future<void> logOut();
+
+  @GET(ApiConst.specialization)
+  Future<SpecializationResponseModel> getSpecialization();
+
+  @GET(ApiConst.specializationIndex)
+  Future<SpecializationDetailsResponse> getSpecializationById(@Path("id") int id);
+
+
+
 }

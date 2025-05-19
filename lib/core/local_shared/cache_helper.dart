@@ -32,8 +32,8 @@ class CacheHelper
     return await sharedPreferences!.setString(key, value);
   }
 
-  static String? getStringToken({required String key}) {
-    return sharedPreferences?.getString(key);
+  static dynamic getString({required String key}) {
+    return sharedPreferences!.get(key);
   }
 
   static  removeString({

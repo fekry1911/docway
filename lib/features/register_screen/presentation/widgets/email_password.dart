@@ -9,14 +9,14 @@ import '../../../../core/regexs/regexs.dart';
 import '../../../../core/shared_widgets/shared_text_form_field.dart';
 import '../../cubit/register_cubit.dart';
 
-class EmailAndPassword extends StatefulWidget {
-  const EmailAndPassword({super.key});
+class EmailAndPassword1 extends StatefulWidget {
+  const EmailAndPassword1({super.key});
 
   @override
-  State<EmailAndPassword> createState() => _EmailAndPasswordState();
+  State<EmailAndPassword1> createState() => _EmailAndPasswordState();
 }
 
-class _EmailAndPasswordState extends State<EmailAndPassword> {
+class _EmailAndPasswordState extends State<EmailAndPassword1> {
   @override
   Widget build(BuildContext context) {
     return Form(

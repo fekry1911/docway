@@ -8,8 +8,8 @@ import '../../../../core/theme/text_themes/text.dart';
 import '../../../register_screen/cubit/register_cubit.dart';
 import '../../../register_screen/presentation/register_screen.dart';
 
-class AlreadyHaveAccount extends StatelessWidget {
-  const AlreadyHaveAccount({super.key});
+class AlreadyHaveAccount1 extends StatelessWidget {
+  const AlreadyHaveAccount1({super.key});
 
   @override
   Widget build(BuildContext context) {

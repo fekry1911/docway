@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/theme/colors/colors.dart';
-import '../../../../core/theme/text_themes/text.dart';
+import '../theme/colors/colors.dart';
+import '../theme/text_themes/text.dart';
 
 class CustomShape extends StatelessWidget {
    CustomShape({super.key,required this.image,required this.text});

@@ -1,11 +1,12 @@
+
 import 'package:docway/features/register_screen/cubit/register_state.dart';
-import 'package:docway/features/register_screen/data/rebo/rebo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/networking/api_error_handler.dart';
 import '../data/models/register_model.dart';
 import '../data/models/register_response_model.dart';
+import '../data/rebo/rebo.dart';
 
 class RegisterCubit extends Cubit<RegisterStates>{
   TextEditingController name=TextEditingController();

@@ -1,23 +1,20 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/const/const.dart';
 import 'core/di/debendency_injection.dart';
 import 'core/generated/codegen_loader.g.dart';
 import 'core/local_shared/cache_helper.dart';
-import 'features/home/logic/cubit/doctor_cubit.dart';
-import 'features/home_page/logic/cubit/cubit.dart';
-import 'features/home_page/presentation/home_pagee.dart';
 import 'features/spalsh/presentation/splash.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  CacheHelper.getStringToken(key: 'token')==null?"":TOKEN=CacheHelper.getStringToken(key: 'token')!;
+  await CacheHelper.init();
+  CacheHelper.getString(key: 'token')==null?"":TOKEN=CacheHelper.getString(key: 'token')!;
   await setup();
   await EasyLocalization.ensureInitialized();
-  await CacheHelper.init();
+  //await CacheHelper.init();
 
 
   runApp(
@@ -51,16 +48,22 @@ class MyApp extends StatelessWidget {
             title: 'First Method',
 
             theme: ThemeData(
+              appBarTheme: AppBarTheme(
+                scrolledUnderElevation: 0,
+                backgroundColor: Colors.white,
+                elevation: 0,
+                iconTheme: IconThemeData(color: Colors.black),
+              ),
               scaffoldBackgroundColor: Colors.white,
               fontFamily: 'cairo',
               primarySwatch: Colors.blue,
               textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
             ),
-            home:
-            CacheHelper.getStringToken(key: 'token')==null?SpashScreen():BlocProvider(
+            home:SpashScreen()
+            /*CacheHelper.getStringToken(key: 'token')==null?SpashScreen():BlocProvider(
               create: (BuildContext context) => getIt<DoctorHomeCubit>()..getAllDocs(),
               child: HomePage(),
-            ),
+            ),*/
           );
         }
     );

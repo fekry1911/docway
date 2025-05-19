@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/const/const.dart';
 import '../../../../core/local_shared/cache_helper.dart';
 import '../../../../core/networking/dio_factory.dart';
@@ -26,8 +25,10 @@ class LoginCubit extends Cubit<LoginStates> {
     );
     result.when(
       success: (loginResponseMode) async {
-       await CacheHelper.putString(key: 'token', value: loginResponseMode.userData!.token!);
-        TOKEN=CacheHelper.getStringToken(key: 'token')!;
+        await CacheHelper.putString(
+            key: 'token', value: loginResponseMode.userData!.token!);
+        TOKEN = CacheHelper.getString(key: 'token')!;
+        CacheHelper.putString(key: "name", value: loginResponseMode.userData!.username!);
         DioFactory.setTokenIntoHeaderAfterLogin(TOKEN);
         emit(LoginStates.success(loginResponseMode));
       },

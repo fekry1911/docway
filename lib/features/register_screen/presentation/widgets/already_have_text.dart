@@ -1,5 +1,3 @@
-import 'package:docway/core/generated/locale_keys.g.dart';
-import 'package:docway/core/theme/text_themes/text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
@@ -8,6 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/di/debendency_injection.dart';
+import '../../../../core/generated/locale_keys.g.dart';
+import '../../../../core/theme/text_themes/text.dart';
 import '../../../login_screen/logic/cubit/login_cubit.dart';
 import '../../../login_screen/presentation/login.dart';
 

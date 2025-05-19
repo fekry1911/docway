@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/theme/text_themes/text.dart';
+import '../theme/text_themes/text.dart';
 
 class CardDetails extends StatelessWidget {
    CardDetails({super.key,required this.imageDoctor,required this.name,required this.specialize,required this.degree});

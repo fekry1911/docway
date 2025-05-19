@@ -1,8 +1,4 @@
-import 'package:docway/core/di/debendency_injection.dart';
-import 'package:docway/core/generated/locale_keys.g.dart';
-import 'package:docway/core/theme/colors/colors.dart';
-import 'package:docway/features/home/presentation/home.dart';
-import 'package:docway/features/login_screen/logic/cubit/login_cubit.dart';
+
 import 'package:docway/features/on_boarding/presentation/widgets/background_text.dart';
 import 'package:docway/features/on_boarding/presentation/widgets/logo_and_name.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -10,13 +6,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/di/debendency_injection.dart';
+import '../../../core/generated/locale_keys.g.dart';
+import '../../../core/local_shared/cache_helper.dart';
 import '../../../core/shared_widgets/shared_button.dart';
+import '../../../core/theme/colors/colors.dart';
 import '../../../core/theme/text_themes/text.dart';
+import '../../home/presentation/home.dart';
+import '../../login_screen/logic/cubit/login_cubit.dart';
 import '../../login_screen/presentation/login.dart';
 
 class OnBoarding extends StatelessWidget {
   const OnBoarding({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +27,7 @@ class OnBoarding extends StatelessWidget {
         child: Column(
           children: [
             LogoAndName(),
-            SizedBox(
-              height: 10.h,
-            ),
+            SizedBox(height: 10.h),
             Stack(
               alignment: Alignment.bottomCenter,
               children: [
@@ -63,11 +62,25 @@ class OnBoarding extends StatelessWidget {
                     style: TextThemes.textGreyRegular12,
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 30.h,),
-                  BlueButtonWithRaduis(text: LocaleKeys.on_boarding_button_text,onTab:(){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>BlocProvider(create: (BuildContext context) =>getIt<LoginCubit>(),
-                    child: LoginScreen())));
-                  },)
+                  SizedBox(height: 30.h),
+                  BlueButtonWithRaduis(
+                    text: LocaleKeys.on_boarding_button_text,
+                    onTab: () {
+                      CacheHelper.putBoolean(key: "on_boarding", value: true);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (context) => BlocProvider(
+                                create:
+                                    (BuildContext context) =>
+                                        getIt<LoginCubit>(),
+                                child: LoginScreen(),
+                              ),
+                        ),
+                      );
+                    },
+                  ),
                 ],
               ),
             ),
