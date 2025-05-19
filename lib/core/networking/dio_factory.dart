@@ -26,11 +26,11 @@ class DioFactory {
   }
 
   static Future<void> addDioHeaders() async {
-    final token = CacheHelper.getStringToken(key: 'token');
+    final token = CacheHelper.getString(key: 'token');
     dio?.options.headers = {
       'Accept': 'application/json',
-      if (token != null && token.isNotEmpty)
-        'Authorization': 'Bearer $token',
+      if (CacheHelper.getString(key: 'token') != null)
+        'Authorization': 'Bearer ${CacheHelper.getString(key: 'token')}',
     };
   }
   static void setTokenIntoHeaderAfterLogin(String token) {
@@ -50,7 +50,6 @@ class DioFactory {
           print("!!!!!!!!!!!@@@@@@@@@@@@@@@###############%%%%%%%%%^^^^^^^^^^^^^&&&&&&&&&&&&*********");
           print("REQUEST HEADERS: ${e.response?.headers}");
           if (e.response?.statusCode == 401) {
-
             await CacheHelper.removeString(key: "token");
           } else {
             handler.next(e);

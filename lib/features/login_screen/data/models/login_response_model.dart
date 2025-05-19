@@ -19,7 +19,7 @@ class LoginResponseMode {
 @JsonSerializable()
 class Data {
   String? token;
-  @JsonKey(name: "name")
+  @JsonKey(name: "username")
   String? username;
 
   Data({this.token, this.username});

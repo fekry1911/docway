@@ -42,25 +42,6 @@ android {
         }
     }
 
-    flavorDimensions += "default"
-    productFlavors {
-        create("staging") {
-            dimension = "default"
-            resValue(
-                type = "string",
-                name = "app_name",
-                value = "Flavors staging")
-        }
-        create("production") {
-            dimension = "default"
-            resValue(
-                type = "string",
-                name = "app_name",
-                value = "Flavors production"
-            )
-
-        }
-    }
 }
 
 flutter {

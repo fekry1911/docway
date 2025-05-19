@@ -10,7 +10,11 @@ class ApiConst{
 
   static const String searchDoctors="doctor/doctor-search";
 
+  static const String logOut="auth/logout";
 
+  static const String specialization="specialization/index";
+
+  static const String specializationIndex = "/specialization/show/{id}";
 
 
 

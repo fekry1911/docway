@@ -1,20 +1,22 @@
-import 'package:docway/core/di/debendency_injection.dart';
-import 'package:docway/core/shared_widgets/shared_button.dart'
-    show BlueButtonWithRaduis;
-import 'package:docway/features/login_screen/logic/cubit/login_cubit.dart';
-import 'package:docway/features/login_screen/presentation/login.dart';
+
 import 'package:docway/features/register_screen/presentation/widgets/already_have_text.dart';
 import 'package:docway/features/register_screen/presentation/widgets/email_password.dart';
 import 'package:docway/features/register_screen/presentation/widgets/errr_setup.dart';
-import 'package:docway/features/register_screen/presentation/widgets/term_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/di/debendency_injection.dart';
 import '../../../core/generated/locale_keys.g.dart';
+import '../../../core/shared_widgets/shared_button.dart';
 import '../../../core/theme/colors/colors.dart';
 import '../../../core/theme/text_themes/text.dart';
+import '../../login_screen/logic/cubit/login_cubit.dart';
+import '../../login_screen/presentation/login.dart';
+import '../../login_screen/presentation/widgets/already_have_text.dart';
+import '../../login_screen/presentation/widgets/email_password.dart';
+import '../../login_screen/presentation/widgets/term_text.dart';
 import '../cubit/register_cubit.dart';
 import '../cubit/register_state.dart';
 
@@ -47,7 +49,7 @@ class _RegisterState extends State<Register> {
                 style: TextThemes.textGreyRegular14,
               ),
               SizedBox(height: 36.h),
-              EmailAndPassword(),
+              EmailAndPassword1(),
               Row(
                 children: [
                   Checkbox(

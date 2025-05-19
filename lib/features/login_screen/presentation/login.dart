@@ -1,3 +1,5 @@
+import 'package:docway/features/login_screen/presentation/widgets/already_have_text.dart';
+import 'package:docway/features/login_screen/presentation/widgets/email_password.dart';
 import 'package:docway/features/login_screen/presentation/widgets/errr_setup.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -6,16 +8,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/di/debendency_injection.dart';
 import '../../../core/generated/locale_keys.g.dart';
+import '../../../core/shared/cubit/cubit_specialization/sprcialization_cubit.dart';
 import '../../../core/shared_widgets/shared_button.dart';
 import '../../../core/theme/colors/colors.dart';
 import '../../../core/theme/text_themes/text.dart';
-import '../../home/logic/cubit/doctor_cubit.dart';
-import '../../home/presentation/home.dart';
-import '../../home_page/logic/cubit/cubit.dart';
+import '../../home_page/logic/cubit/cubit_gethomedoctors/cubit.dart';
 import '../../home_page/presentation/home_pagee.dart';
-import '../../on_boarding/presentation/on_boarding.dart';
-import '../../register_screen/presentation/widgets/already_have_text.dart';
-import '../../register_screen/presentation/widgets/email_password.dart';
 import '../../register_screen/presentation/widgets/term_text.dart';
 import '../logic/cubit/login_cubit.dart';
 import '../logic/cubit/login_states.dart';
@@ -88,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 32.h),
               TermAndConditions(),
               SizedBox(height: 32.h),
-              AlreadyHaveAccount(),
+              AlreadyHaveAccount1(),
               BlocListener<LoginCubit, LoginStates>(
                 child: const SizedBox.shrink(),
                 listener: (context, state) {
@@ -110,10 +108,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => BlocProvider(
-                            create: (BuildContext context) => getIt<DoctorHomeCubit>()..getAllDocs(),
-                            child: HomePage(),
-                          ),
+                            builder:
+                                (context) => MultiBlocProvider(providers: [
+                              BlocProvider(create: (context)=>getIt<DoctorHomeCubit>()..getAllDocs()),
+                              BlocProvider(create: (context)=>getIt<SpecializationCubit>()..getSpecialization()),
+
+                            ], child: HomePage())
                         ),
                       );
                     },

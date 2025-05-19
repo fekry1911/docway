@@ -89,10 +89,14 @@ flutter:
     - assets/icons/doctor.svg
     - assets/icons/doctorPhoto.png
     - assets/doctor.png
-    - assets/part/
+    - assets/part/baby.png
+    - assets/part/person.png
+    - assets/part/Kidneys.png
+    - assets/part/Brain.png
     - assets/translations/en.json
     - assets/translations/ar.json
     - assets/logos.gif
+    - assets/specialization/
     - assets/fonts/
   #   - images/a_dot_ham.jpeg
 

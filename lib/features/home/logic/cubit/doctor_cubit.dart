@@ -1,12 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/const/const.dart';
-import '../../../../core/local_shared/cache_helper.dart';
-import '../../../login_screen/data/models/login_response_model.dart';
-import '../../data/models/doctor_response_model.dart';
-import '../../data/rebo/doctor_rebo.dart';
+import '../../../../core/models/doctor/doctor_response_model.dart';
+import '../../../../core/rebos/doctor_rebo.dart';
 import 'doctor_states.dart';
 
 
@@ -16,7 +12,7 @@ class DoctorCubit extends Cubit<DoctorStates> {
   DoctorCubit(this.doctorRebo) : super(DoctorStates.initial());
 
   bool isLoading = false;
-  List<Data2> allDoctors = [];
+  List<Data> allDoctors = [];
   TextEditingController name=TextEditingController();
 
   Future<void> getAllDocs() async {

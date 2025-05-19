@@ -49,7 +49,7 @@ class FindCard extends StatelessWidget {
                               side: BorderSide(color: Colors.white), // border
                             ),
                             onPressed: () {
-                              print(CacheHelper.getStringToken(key: 'token'));
+                              print(CacheHelper.getString(key: 'token'));
                             },
                             color: Colors.white,
                             child: Text(

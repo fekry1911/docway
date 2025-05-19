@@ -7,7 +7,7 @@ part 'doctor_response_model.g.dart';
 @JsonSerializable()
 class DoctorsResponseModel {
   String? message;
-  List<Data2>? data;
+  List<Data>? data;
   bool? status;
   int? code;
 
@@ -19,7 +19,7 @@ class DoctorsResponseModel {
 
 
 @JsonSerializable()
-class Data2 {
+class Data {
   int? id;
   String? name;
   String? email;
@@ -35,7 +35,7 @@ class Data2 {
   String? startTime;
   String? endTime;
 
-  Data2(
+  Data(
       {this.id,
         this.name,
         this.email,
@@ -51,7 +51,7 @@ class Data2 {
         this.startTime,
         this.endTime});
 
-  factory Data2.fromJson(Map<String, dynamic> json)=> _$DataFromJson(json);
+  factory Data.fromJson(Map<String, dynamic> json)=> _$DataFromJson(json);
 }
 
 

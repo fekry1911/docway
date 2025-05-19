@@ -1,10 +1,9 @@
 
 
-
-import '../../../../core/networking/api_error_handler.dart';
-import '../../../../core/networking/api_result.dart';
-import '../../../../core/networking/api_service.dart';
-import '../models/doctor_response_model.dart';
+import '../models/doctor/doctor_response_model.dart';
+import '../networking/api_error_handler.dart';
+import '../networking/api_result.dart';
+import '../networking/api_service.dart';
 
 
 class DoctorRebo {

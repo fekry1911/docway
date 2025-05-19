@@ -34,6 +34,7 @@ class SharedTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: TextStyle(color: Colors.black),
       controller: controller,
       decoration: InputDecoration(
         isDense: true,
@@ -76,7 +77,6 @@ class SharedTextFormField extends StatelessWidget {
         filled: true,
       ),
       obscureText: isObscureText ?? false,
-      style: TextThemes.font14DarkBlueMedium,
       validator: (value) {
         return validator(value);
       },
