@@ -1,6 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import '../../features/login_screen/presentation/login.dart';
+import '../../main.dart';
 import '../local_shared/cache_helper.dart';
 
 class DioFactory {
@@ -33,24 +36,26 @@ class DioFactory {
         'Authorization': 'Bearer ${CacheHelper.getString(key: 'token')}',
     };
   }
+
   static void setTokenIntoHeaderAfterLogin(String token) {
-    dio?.options.headers = {
-      'Authorization': 'Bearer $token',
-    };
+    dio?.options.headers = {'Authorization': 'Bearer $token'};
   }
 
   static void addDioInterceptor() {
     dio?.interceptors.addAll([
-      PrettyDioLogger(
-        responseHeader: true,
-        responseBody: true,
-      ),
+      PrettyDioLogger(responseHeader: true, responseBody: true),
       InterceptorsWrapper(
         onError: (DioException e, handler) async {
-          print("!!!!!!!!!!!@@@@@@@@@@@@@@@###############%%%%%%%%%^^^^^^^^^^^^^&&&&&&&&&&&&*********");
+          print(
+            "!!!!!!!!!!!@@@@@@@@@@@@@@@###############%%%%%%%%%^^^^^^^^^^^^^&&&&&&&&&&&&*********",
+          );
           print("REQUEST HEADERS: ${e.response?.headers}");
           if (e.response?.statusCode == 401) {
             await CacheHelper.removeString(key: "token");
+            navigatorKey.currentState?.pushAndRemoveUntil(
+              MaterialPageRoute(builder: (_) => LoginScreen()),
+              (route) => false,
+            );
           } else {
             handler.next(e);
           }

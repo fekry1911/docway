@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
+import '../../features/doctor_details/data/models/appointment_model/appointment_request_model.dart';
+import '../../features/doctor_details/data/models/doctor_model.dart';
 import '../../features/login_screen/data/models/login_request_model.dart';
 import '../../features/login_screen/data/models/login_response_model.dart';
 import '../../features/register_screen/data/models/register_model.dart';
@@ -34,7 +36,11 @@ abstract class ApiService{
 
   @GET(ApiConst.specializationIndex)
   Future<SpecializationDetailsResponse> getSpecializationById(@Path("id") int id);
+  @GET(ApiConst.doctorDetails)
+  Future<DoctorDetailsResponse> getDoctorById(@Path("id") int id);
 
+  @POST(ApiConst.appointment)
+  Future<void> makeAppointment(@Body() AppointmentRequestModel appointmentRequestModel);
 
 
 }

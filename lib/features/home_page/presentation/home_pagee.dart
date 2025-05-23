@@ -10,6 +10,8 @@ import '../../../core/shared/cubit/cubit_specialization/specializaton_states.dar
 import '../../../core/shared/cubit/cubit_specialization/sprcialization_cubit.dart';
 import '../../../core/theme/text_themes/text.dart';
 import '../../all_speciali/prsentation/all_specialization.dart';
+import '../../doctor_details/logic/cubit/doctor_details_cubit.dart';
+import '../../doctor_details/presentation/doctor_details_ui.dart';
 import '../../home/logic/cubit/doctor_cubit.dart';
 import '../../home/presentation/home.dart';
 import '../../../core/shared_widgets/card.dart';
@@ -181,7 +183,7 @@ class HomePage extends StatelessWidget {
                             name: cubit.allDoctors[index].name,
                             specialize:
                                 cubit.allDoctors[index].specialization!.name!,
-                            degree: cubit.allDoctors[index].degree,
+                            degree: cubit.allDoctors[index].degree, id: cubit.allDoctors[index].id,
                           ),
                       itemCount: 10,
                       shrinkWrap: true,

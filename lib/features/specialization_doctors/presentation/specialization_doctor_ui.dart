@@ -54,7 +54,7 @@ class SpecializationDoctorUi extends StatelessWidget {
                 name: cubit.specializationDetailsData[index].name,
                 specialize:
                     cubit.specializationDetailsData[index].specialization.name,
-                degree: cubit.specializationDetailsData[index].degree,
+                degree: cubit.specializationDetailsData[index].degree, id: cubit.specializationDetailsData[index].id,
               );
             },
           );

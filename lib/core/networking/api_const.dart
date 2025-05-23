@@ -16,6 +16,11 @@ class ApiConst{
 
   static const String specializationIndex = "/specialization/show/{id}";
 
+  static const String doctorDetails = "doctor/show/{id}";
+
+  static const String appointment = "appointment/store";
+
+
 
 
 }
