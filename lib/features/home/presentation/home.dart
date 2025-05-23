@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/di/debendency_injection.dart';
+import '../../../core/shared/cubit/cubit_specialization/sprcialization_cubit.dart';
 import '../../../core/shared_widgets/card.dart';
 import '../../../core/shared_widgets/leading_shabe.dart';
 import '../../../core/theme/text_themes/text.dart';
@@ -26,12 +27,26 @@ class AllDoctors extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => BlocProvider(
-                create: (BuildContext context) => getIt<DoctorHomeCubit>()..getAllDocs(),
+              builder:
+                  (context) => MultiBlocProvider(
+                providers: [
+                  BlocProvider(
+                    create:
+                        (context) =>
+                    getIt<DoctorHomeCubit>()..getAllDocs(),
+                  ),
+                  BlocProvider(
+                    create:
+                        (context) =>
+                    getIt<SpecializationCubit>()
+                      ..getSpecialization(),
+                  ),
+                ],
                 child: HomePage(),
               ),
             ),
           );
+
 
         }),
         title: Text("Search", style: TextThemes.font18BlackSemiBold),
@@ -65,7 +80,7 @@ class AllDoctors extends StatelessWidget {
                 }
                 return Expanded(
                   child: ListView.separated(
-                    itemBuilder: (context, index) => CardDetails(imageDoctor: cubit.allDoctors[index].photo, name: cubit.allDoctors[index].name, specialize: cubit.allDoctors[index].specialization!.name!, degree: cubit.allDoctors[index].degree,),
+                    itemBuilder: (context, index) => CardDetails(id: cubit.allDoctors[index].id,imageDoctor: cubit.allDoctors[index].photo, name: cubit.allDoctors[index].name, specialize: cubit.allDoctors[index].specialization!.name!, degree: cubit.allDoctors[index].degree,),
                     itemCount: cubit.allDoctors.length,
                     shrinkWrap: true, separatorBuilder: (BuildContext context, int index) =>SizedBox(height: 10.h,),
                   ),

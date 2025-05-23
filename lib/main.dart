@@ -6,7 +6,11 @@ import 'core/const/const.dart';
 import 'core/di/debendency_injection.dart';
 import 'core/generated/codegen_loader.g.dart';
 import 'core/local_shared/cache_helper.dart';
+import 'features/doctor_details/presentation/doctor_details_ui.dart';
 import 'features/spalsh/presentation/splash.dart';
+
+
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,6 +52,8 @@ class MyApp extends StatelessWidget {
             title: 'First Method',
 
             theme: ThemeData(
+              primaryColorLight: Colors.blue,
+              primaryColor: Colors.blue,
               appBarTheme: AppBarTheme(
                 scrolledUnderElevation: 0,
                 backgroundColor: Colors.white,

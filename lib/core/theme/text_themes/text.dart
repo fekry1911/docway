@@ -84,6 +84,12 @@ class TextThemes{
     fontSize: 18.sp,
   );
 
+  static TextStyle font14BlackSemiBold=TextStyle(
+    color: AppColors.darkBlack,
+    fontWeight: FontWeightHelper.semiBold,
+    fontSize: 14.sp,
+  );
+
   static TextStyle font16BlackBold=TextStyle(
     color: AppColors.darkBlack,
     fontWeight: FontWeightHelper.bold,
@@ -114,6 +120,24 @@ class TextThemes{
     color: AppColors.lightBlack,
     fontWeight: FontWeightHelper.regular,
     fontSize: 12.sp,
+  );
+
+  static TextStyle font16BlueBold=TextStyle(
+    color: AppColors.mainBlueColor,
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 16.sp,
+  );
+
+  static TextStyle font14LightDarkRegular=TextStyle(
+    color: AppColors.greyDark,
+    fontWeight: FontWeightHelper.regular,
+    fontSize: 14.sp,
+  );
+
+  static TextStyle font16WhiteSemiBold=TextStyle(
+    color: AppColors.whiteColor,
+    fontWeight: FontWeightHelper.semiBold,
+    fontSize: 16.sp,
   );
 
 
