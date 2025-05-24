@@ -8,6 +8,7 @@ import '../../features/login_screen/data/models/login_request_model.dart';
 import '../../features/login_screen/data/models/login_response_model.dart';
 import '../../features/register_screen/data/models/register_model.dart';
 import '../../features/register_screen/data/models/register_response_model.dart';
+import '../../features/show_appointment/data/models/appointment_response_model.dart';
 import '../models/all_specialization/specialization_model.dart';
 import '../models/doctor/doctor_response_model.dart';
 import '../models/id_specialization/specialization_by_id.dart';
@@ -42,5 +43,6 @@ abstract class ApiService{
   @POST(ApiConst.appointment)
   Future<void> makeAppointment(@Body() AppointmentRequestModel appointmentRequestModel);
 
-
+  @GET(ApiConst.getAppointment)
+  Future<AppointmentApiResponse> getAppointment();
 }

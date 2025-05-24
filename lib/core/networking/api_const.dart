@@ -20,6 +20,9 @@ class ApiConst{
 
   static const String appointment = "appointment/store";
 
+  static const String getAppointment = "appointment/index";
+
+
 
 
 
