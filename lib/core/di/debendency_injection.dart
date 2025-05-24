@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:docway/features/show_appointment/data/rebo/appointment_rebo_response.dart';
 import 'package:get_it/get_it.dart';
 import '../../features/doctor_details/data/rebo/appointment_request_rebo.dart';
 import '../../features/doctor_details/data/rebo/doctor_rebo.dart';
@@ -10,6 +11,7 @@ import '../../features/login_screen/data/rebo/login_rebo.dart';
 import '../../features/login_screen/logic/cubit/login_cubit.dart';
 import '../../features/register_screen/cubit/register_cubit.dart';
 import '../../features/register_screen/data/rebo/rebo.dart';
+import '../../features/show_appointment/logic/cubit/appointment_cubit.dart';
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
 import '../rebos/doctor_rebo.dart';
@@ -49,5 +51,7 @@ Future<void> setup() async {
 
   getIt.registerFactory<DoctorDetailsCubit>(()=>DoctorDetailsCubit(getIt<DoctorDetailsRebo>(),getIt<AppointmentRequestRebo>()));
 
+  getIt.registerLazySingleton<AppointmentReboResponse>(()=>AppointmentReboResponse(getIt<ApiService>()));
 
+  getIt.registerFactory<AppointmentResponseApiCubit>(()=>AppointmentResponseApiCubit(getIt<AppointmentReboResponse>()));
 }

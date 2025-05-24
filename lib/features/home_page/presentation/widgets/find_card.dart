@@ -1,6 +1,10 @@
+import 'package:docway/features/show_appointment/logic/cubit/appointment_cubit.dart';
+import 'package:docway/features/show_appointment/presentation/show_all_appointment.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/di/debendency_injection.dart';
 import '../../../../core/local_shared/cache_helper.dart';
 import '../../../../core/theme/text_themes/text.dart';
 
@@ -49,11 +53,23 @@ class FindCard extends StatelessWidget {
                               side: BorderSide(color: Colors.white), // border
                             ),
                             onPressed: () {
-                              print(CacheHelper.getString(key: 'token'));
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder:
+                                      (context) => BlocProvider(
+                                    create:
+                                        (BuildContext context) =>
+                                    getIt<AppointmentResponseApiCubit>()..getAppointmentResponse(),
+                                    child: ShowwAllAppointment(),
+                                  ),
+                                ),
+                              );
+
                             },
                             color: Colors.white,
                             child: Text(
-                              "Find Nearby",
+                              "Show My Appointment",
                               style: TextThemes.font12BlueRegular,
                             ),
                           ),
