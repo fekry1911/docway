@@ -74,7 +74,7 @@ class _RegisterState extends State<Register> {
               ),
               SizedBox(height: 32.h),
               BlueButtonWithRaduis(
-                text: LocaleKeys.auth_login.tr(),
+                text: "Register",
                 onTab: () {
                   if (context
                       .read<RegisterCubit>()
@@ -109,7 +109,7 @@ class _RegisterState extends State<Register> {
                       print(loginResponseMode.userData.token);
                       setupState(
                         context,
-                        error: "Login succ",
+                        error: "Registration completed successfully",
                         icon: Icons.done,
                         color: Colors.green,
                         onpressed: () {

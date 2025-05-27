@@ -50,7 +50,7 @@ class DioFactory {
             "!!!!!!!!!!!@@@@@@@@@@@@@@@###############%%%%%%%%%^^^^^^^^^^^^^&&&&&&&&&&&&*********",
           );
           print("REQUEST HEADERS: ${e.response?.headers}");
-          if (e.response?.statusCode == 401) {
+          if (e.response?.statusCode == 401&&CacheHelper.getString(key: "token")!=null) {
             await CacheHelper.removeString(key: "token");
             navigatorKey.currentState?.pushAndRemoveUntil(
               MaterialPageRoute(builder: (_) => LoginScreen()),

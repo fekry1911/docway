@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/shared_widgets/card.dart';
-import '../../../core/shared_widgets/leading_shabe.dart';
 import '../../../core/theme/text_themes/text.dart';
 import '../logic/cubit/doctor_details_cubit.dart';
 import '../logic/cubit/doctor_details_states.dart' as doctorDetails;
@@ -17,23 +16,21 @@ class DoctorDetailsUi extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<DoctorDetailsCubit, doctorDetails.DoctorDetailsStates>(
   listener: (context, state) {
-    // TODO: implement listener
   },
   builder: (context, state) {
     var cubit=context.read<DoctorDetailsCubit>();
     if(state is doctorDetails.Loading){
-      return Center(child: CircularProgressIndicator());
+      return Container(
+          color: Colors.white,
+          child: Center(child: CircularProgressIndicator()));
     }
     if(state is doctorDetails.Error){
-      return Center(child: Text(state.message));
+      return Center(
+
+          child: Text(state.message));
     }
     return Scaffold(
       appBar: AppBar(
-        leading: LeadingShapeAppBar(
-            action: () {
-              Navigator.pop(context);
-            }),
-        automaticallyImplyLeading: false,
         title: Text(cubit.doctorDetailsResponse!.data.name),
 
       ),
