@@ -22,6 +22,8 @@ class ApiConst{
 
   static const String getAppointment = "appointment/index";
 
+  static const String userData = "user/profile";
+
 
 
 
