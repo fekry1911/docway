@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'appointment_response_states.dart';
+part of 'get_user_states.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -16,26 +16,26 @@ final _privateConstructorUsedError = UnsupportedError(
 );
 
 /// @nodoc
-mixin _$AppointmentResponseStates {
+mixin _$UserStates {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AppointmentApiResponse data) success,
+    required TResult Function(String data) success,
     required TResult Function(String message) error,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AppointmentApiResponse data)? success,
+    TResult? Function(String data)? success,
     TResult? Function(String message)? error,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AppointmentApiResponse data)? success,
+    TResult Function(String data)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -64,27 +64,24 @@ mixin _$AppointmentResponseStates {
 }
 
 /// @nodoc
-abstract class $AppointmentResponseStatesCopyWith<$Res> {
-  factory $AppointmentResponseStatesCopyWith(
-    AppointmentResponseStates value,
-    $Res Function(AppointmentResponseStates) then,
-  ) = _$AppointmentResponseStatesCopyWithImpl<$Res, AppointmentResponseStates>;
+abstract class $UserStatesCopyWith<$Res> {
+  factory $UserStatesCopyWith(
+    UserStates value,
+    $Res Function(UserStates) then,
+  ) = _$UserStatesCopyWithImpl<$Res, UserStates>;
 }
 
 /// @nodoc
-class _$AppointmentResponseStatesCopyWithImpl<
-  $Res,
-  $Val extends AppointmentResponseStates
->
-    implements $AppointmentResponseStatesCopyWith<$Res> {
-  _$AppointmentResponseStatesCopyWithImpl(this._value, this._then);
+class _$UserStatesCopyWithImpl<$Res, $Val extends UserStates>
+    implements $UserStatesCopyWith<$Res> {
+  _$UserStatesCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of AppointmentResponseStates
+  /// Create a copy of UserStates
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -98,14 +95,14 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$AppointmentResponseStatesCopyWithImpl<$Res, _$InitialImpl>
+    extends _$UserStatesCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
     _$InitialImpl _value,
     $Res Function(_$InitialImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of AppointmentResponseStates
+  /// Create a copy of UserStates
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -116,7 +113,7 @@ class _$InitialImpl implements Initial {
 
   @override
   String toString() {
-    return 'AppointmentResponseStates.initial()';
+    return 'UserStates.initial()';
   }
 
   @override
@@ -133,7 +130,7 @@ class _$InitialImpl implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AppointmentApiResponse data) success,
+    required TResult Function(String data) success,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -144,7 +141,7 @@ class _$InitialImpl implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AppointmentApiResponse data)? success,
+    TResult? Function(String data)? success,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -155,7 +152,7 @@ class _$InitialImpl implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AppointmentApiResponse data)? success,
+    TResult Function(String data)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -203,7 +200,7 @@ class _$InitialImpl implements Initial {
   }
 }
 
-abstract class Initial implements AppointmentResponseStates {
+abstract class Initial implements UserStates {
   const factory Initial() = _$InitialImpl;
 }
 
@@ -217,14 +214,14 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$AppointmentResponseStatesCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$UserStatesCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
     _$LoadingImpl _value,
     $Res Function(_$LoadingImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of AppointmentResponseStates
+  /// Create a copy of UserStates
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -235,7 +232,7 @@ class _$LoadingImpl implements Loading {
 
   @override
   String toString() {
-    return 'AppointmentResponseStates.loading()';
+    return 'UserStates.loading()';
   }
 
   @override
@@ -252,7 +249,7 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AppointmentApiResponse data) success,
+    required TResult Function(String data) success,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -263,7 +260,7 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AppointmentApiResponse data)? success,
+    TResult? Function(String data)? success,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -274,7 +271,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AppointmentApiResponse data)? success,
+    TResult Function(String data)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -322,7 +319,7 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements AppointmentResponseStates {
+abstract class Loading implements UserStates {
   const factory Loading() = _$LoadingImpl;
 }
 
@@ -333,19 +330,19 @@ abstract class _$$SuccessImplCopyWith<$Res> {
     $Res Function(_$SuccessImpl) then,
   ) = __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({AppointmentApiResponse data});
+  $Res call({String data});
 }
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$AppointmentResponseStatesCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$UserStatesCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
     _$SuccessImpl _value,
     $Res Function(_$SuccessImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of AppointmentResponseStates
+  /// Create a copy of UserStates
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -355,7 +352,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
         null == data
             ? _value.data
             : data // ignore: cast_nullable_to_non_nullable
-                as AppointmentApiResponse,
+                as String,
       ),
     );
   }
@@ -367,11 +364,11 @@ class _$SuccessImpl implements Success {
   const _$SuccessImpl(this.data);
 
   @override
-  final AppointmentApiResponse data;
+  final String data;
 
   @override
   String toString() {
-    return 'AppointmentResponseStates.success(data: $data)';
+    return 'UserStates.success(data: $data)';
   }
 
   @override
@@ -385,7 +382,7 @@ class _$SuccessImpl implements Success {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of AppointmentResponseStates
+  /// Create a copy of UserStates
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -398,7 +395,7 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AppointmentApiResponse data) success,
+    required TResult Function(String data) success,
     required TResult Function(String message) error,
   }) {
     return success(data);
@@ -409,7 +406,7 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AppointmentApiResponse data)? success,
+    TResult? Function(String data)? success,
     TResult? Function(String message)? error,
   }) {
     return success?.call(data);
@@ -420,7 +417,7 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AppointmentApiResponse data)? success,
+    TResult Function(String data)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -468,12 +465,12 @@ class _$SuccessImpl implements Success {
   }
 }
 
-abstract class Success implements AppointmentResponseStates {
-  const factory Success(final AppointmentApiResponse data) = _$SuccessImpl;
+abstract class Success implements UserStates {
+  const factory Success(final String data) = _$SuccessImpl;
 
-  AppointmentApiResponse get data;
+  String get data;
 
-  /// Create a copy of AppointmentResponseStates
+  /// Create a copy of UserStates
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
@@ -492,14 +489,14 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$AppointmentResponseStatesCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$UserStatesCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
     _$ErrorImpl _value,
     $Res Function(_$ErrorImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of AppointmentResponseStates
+  /// Create a copy of UserStates
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -525,7 +522,7 @@ class _$ErrorImpl implements Error {
 
   @override
   String toString() {
-    return 'AppointmentResponseStates.error(message: $message)';
+    return 'UserStates.error(message: $message)';
   }
 
   @override
@@ -539,7 +536,7 @@ class _$ErrorImpl implements Error {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of AppointmentResponseStates
+  /// Create a copy of UserStates
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -552,7 +549,7 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AppointmentApiResponse data) success,
+    required TResult Function(String data) success,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -563,7 +560,7 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AppointmentApiResponse data)? success,
+    TResult? Function(String data)? success,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -574,7 +571,7 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AppointmentApiResponse data)? success,
+    TResult Function(String data)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -622,12 +619,12 @@ class _$ErrorImpl implements Error {
   }
 }
 
-abstract class Error implements AppointmentResponseStates {
+abstract class Error implements UserStates {
   const factory Error(final String message) = _$ErrorImpl;
 
   String get message;
 
-  /// Create a copy of AppointmentResponseStates
+  /// Create a copy of UserStates
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
