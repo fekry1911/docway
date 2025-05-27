@@ -1,11 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/const/const.dart';
 import 'core/di/debendency_injection.dart';
 import 'core/generated/codegen_loader.g.dart';
 import 'core/local_shared/cache_helper.dart';
+import 'core/shared/cubit/bloc_obsererer.dart';
 import 'features/doctor_details/presentation/doctor_details_ui.dart';
 import 'features/spalsh/presentation/splash.dart';
 
@@ -13,12 +15,15 @@ import 'features/spalsh/presentation/splash.dart';
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 Future<void> main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
   CacheHelper.getString(key: 'token')==null?"":TOKEN=CacheHelper.getString(key: 'token')!;
   await setup();
   await EasyLocalization.ensureInitialized();
   //await CacheHelper.init();
+  Bloc.observer = MyBlocObserver();
+
 
 
   runApp(

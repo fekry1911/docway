@@ -9,7 +9,6 @@ import '../../../core/shared/cubit/cubit_specialization/specializaton_states.dar
 import '../../../core/shared/cubit/cubit_specialization/sprcialization_cubit.dart';
 import '../../../core/shared/cubit/cubit_specialization_details/specialization_details_cubit.dart';
 import '../../../core/shared_widgets/custom_shape.dart';
-import '../../../core/shared_widgets/leading_shabe.dart';
 import '../../../core/theme/text_themes/text.dart';
 import '../../home_page/logic/cubit/cubit_gethomedoctors/cubit.dart';
 import '../../home_page/presentation/home_pagee.dart';
@@ -22,32 +21,6 @@ class AllSpecialization extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: LeadingShapeAppBar(
-          action: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder:
-                    (context) => MultiBlocProvider(
-                      providers: [
-                        BlocProvider(
-                          create:
-                              (context) =>
-                                  getIt<DoctorHomeCubit>()..getAllDocs(),
-                        ),
-                        BlocProvider(
-                          create:
-                              (context) =>
-                                  getIt<SpecializationCubit>()
-                                    ..getSpecialization(),
-                        ),
-                      ],
-                      child: HomePage(),
-                    ),
-              ),
-            );
-          },
-        ),
         title: Center(
           child: Text(
             "Doctor Speciality",

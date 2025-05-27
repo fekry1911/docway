@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/di/debendency_injection.dart';
 import '../../../core/shared/cubit/cubit_specialization/sprcialization_cubit.dart';
 import '../../../core/shared_widgets/card.dart';
-import '../../../core/shared_widgets/leading_shabe.dart';
 import '../../../core/theme/text_themes/text.dart';
 import '../../home_page/logic/cubit/cubit_gethomedoctors/cubit.dart';
 import '../../home_page/presentation/home_pagee.dart';
@@ -21,34 +20,7 @@ class AllDoctors extends StatelessWidget {
     context.read<DoctorCubit>().getAllDocs();
     return Scaffold(
       appBar: AppBar(
-        leadingWidth: 50.h,
         backgroundColor: Colors.white,
-        leading: LeadingShapeAppBar(action: (){
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder:
-                  (context) => MultiBlocProvider(
-                providers: [
-                  BlocProvider(
-                    create:
-                        (context) =>
-                    getIt<DoctorHomeCubit>()..getAllDocs(),
-                  ),
-                  BlocProvider(
-                    create:
-                        (context) =>
-                    getIt<SpecializationCubit>()
-                      ..getSpecialization(),
-                  ),
-                ],
-                child: HomePage(),
-              ),
-            ),
-          );
-
-
-        }),
         title: Text("Search", style: TextThemes.font18BlackSemiBold),
       ),
       body: Padding(

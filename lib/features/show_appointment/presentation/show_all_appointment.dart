@@ -21,13 +21,29 @@ class ShowwAllAppointment extends StatelessWidget {
             return Center(child: CircularProgressIndicator());
           } else if (state is appointment.Error) {
             return Center(child: Text(state.message));
-          } else  {
-            var cubit=context.read<AppointmentResponseApiCubit>();
+          } else {
+            var cubit = context.read<AppointmentResponseApiCubit>();
             return ListView.builder(
               itemCount: cubit.appointmentApiResponse!.data.length,
               itemBuilder: (BuildContext context, int index) {
-                return AppointmentCard(imageDoctor: '', name: cubit.appointmentApiResponse!.data[index].doctor.name, specialize: cubit.appointmentApiResponse!.data[index].doctor.specialization!.name, degree: cubit.appointmentApiResponse!.data[index].doctor.degree, id: null, appointment_time: cubit.appointmentApiResponse!.data[index].appointmentTime,);
-              },);
+                return AppointmentCard(
+                  imageDoctor: '',
+                  name: cubit.appointmentApiResponse!.data[index].doctor.name,
+                  specialize:
+                      cubit
+                          .appointmentApiResponse!
+                          .data[index]
+                          .doctor
+                          .specialization!
+                          .name,
+                  degree:
+                      cubit.appointmentApiResponse!.data[index].doctor.degree,
+                  id: null,
+                  appointment_time:
+                      cubit.appointmentApiResponse!.data[index].appointmentTime,
+                );
+              },
+            );
           }
         },
         listener: (BuildContext context, Object? state) {},

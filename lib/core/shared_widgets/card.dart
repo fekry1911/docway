@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:docway/features/doctor_details/logic/cubit/doctor_details_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,6 +21,15 @@ class CardDetails extends StatelessWidget {
     this.elevation,
 
   });
+  List<String> imagesDoctors=[
+    "assets/doctors/covid-coronavirus-outbreak-healthcare-workers-pandemic-concept-seriouslooking-professional-male.jpg",
+    "assets/doctors/portrait-smiling-male-doctor-dressed-uniform.jpg",
+    "assets/doctors/thoughtful-young-male-doctor-wearing-medical-robe-stethoscope-around-his-neck-putting-hand-chin-isolated-white-wall.jpg",
+    "assets/doctors/thoughtful-young-male-doctor-wearing-medical-robe-stethoscope-touching-chin-isolated-purple-wall-with-copy-space.jpg",
+    "assets/doctors/young-bearded-male-doctor-wearing-white-coat-with-stethoscope-looking-camera-with-hand-chin-with-pensive-expression-face.jpg",
+    "assets/doctors/young-handsome-doctor-wearing-white-medical-gown-white-medical-gloves-stethoscope-looking-thoughtfully-standing-orange-wall.jpg",
+    "assets/doctors/young-man-doctor-wearing-white-coat-stethoscope-standing-with-skeptic-facial-expression-touching-his-chin-thinking.jpg",
+  ];
 
   String? imageDoctor;
   String? name;
@@ -53,12 +65,22 @@ class CardDetails extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(30.r)),
-                child: Image.network(
-                  "https://i.pinimg.com/736x/db/21/17/db2117b65075d190e2b128d8ea1a5bd9.jpg",
-                  //imageDoctor!,
-                  width: 110.w,
+                child: CachedNetworkImage(
                   height: 110.h,
-                ),
+                  width: 110.w,
+                  imageUrl: imageDoctor!,
+                  placeholder: (context, url) => const CircularProgressIndicator(),
+                  errorWidget: (context, url, error) {
+                    final randomImage = imagesDoctors[Random().nextInt(imagesDoctors.length)];
+                    return Image.asset(
+                      randomImage,
+                      height: 110.h,
+                      width: 110.w,
+                      fit: BoxFit.cover,
+                    );
+                  },
+                  fit: BoxFit.cover,
+                )
               ),
               SizedBox(width: 16.w),
               Container(
