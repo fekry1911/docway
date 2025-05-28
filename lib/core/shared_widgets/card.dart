@@ -65,22 +65,28 @@ class CardDetails extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(30.r)),
-                child: CachedNetworkImage(
+                child: (imageDoctor == null || imageDoctor!.isEmpty || imageDoctor!.contains("via.placeholder.com"))
+                    ? Image.asset(
+                  imagesDoctors[Random().nextInt(imagesDoctors.length)],
+                  height: 110.h,
+                  width: 110.w,
+                  fit: BoxFit.cover,
+                )
+                    : CachedNetworkImage(
                   height: 110.h,
                   width: 110.w,
                   imageUrl: imageDoctor!,
                   placeholder: (context, url) => const CircularProgressIndicator(),
                   errorWidget: (context, url, error) {
-                    final randomImage = imagesDoctors[Random().nextInt(imagesDoctors.length)];
                     return Image.asset(
-                      randomImage,
+                      imagesDoctors[Random().nextInt(imagesDoctors.length)],
                       height: 110.h,
                       width: 110.w,
                       fit: BoxFit.cover,
                     );
                   },
                   fit: BoxFit.cover,
-                )
+                ),
               ),
               SizedBox(width: 16.w),
               Container(

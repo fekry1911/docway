@@ -24,6 +24,9 @@ class ApiConst{
 
   static const String userData = "user/profile";
 
+  static const String userDataUpdate = "user/update";
+
+
 
 
 

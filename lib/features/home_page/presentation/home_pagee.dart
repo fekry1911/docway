@@ -1,6 +1,7 @@
 import 'package:docway/features/home_page/presentation/widgets/find_card.dart';
 import 'package:docway/features/home_page/presentation/widgets/speciality_part.dart';
 import 'package:docway/features/user_data/logic/cubit/get_user_cubit.dart';
+import 'package:docway/features/user_data/logic/update_user_cubit/update_user_cubit.dart';
 import 'package:docway/features/user_data/presentaion/user_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -64,8 +65,12 @@ class HomePage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) => BlocProvider(
-                              create: (context) => getIt<UserCubit>()..getAiiUserData(),
+                            (context) => MultiBlocProvider(
+
+                              providers: [
+                                BlocProvider(create: (context) => getIt<UserCubit>()..getAiiUserData(),),
+                                BlocProvider(create: (context) => getIt<UpdateUSerCubit>(),)
+                              ],
                               child: UserData(),
                             ),
                       ),

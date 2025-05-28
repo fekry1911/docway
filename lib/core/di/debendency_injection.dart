@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:docway/features/show_appointment/data/rebo/appointment_rebo_response.dart';
 import 'package:docway/features/user_data/data/rebo/get_user_data_rebo.dart';
 import 'package:docway/features/user_data/logic/cubit/get_user_cubit.dart';
+import 'package:docway/features/user_data/logic/update_user_cubit/update_user_cubit.dart';
 import 'package:get_it/get_it.dart';
 import '../../features/doctor_details/data/rebo/appointment_request_rebo.dart';
 import '../../features/doctor_details/data/rebo/doctor_rebo.dart';
@@ -14,6 +15,7 @@ import '../../features/login_screen/logic/cubit/login_cubit.dart';
 import '../../features/register_screen/cubit/register_cubit.dart';
 import '../../features/register_screen/data/rebo/rebo.dart';
 import '../../features/show_appointment/logic/cubit/appointment_cubit.dart';
+import '../../features/user_data/data/rebo/update.dart';
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
 import '../rebos/doctor_rebo.dart';
@@ -58,7 +60,13 @@ Future<void> setup() async {
 
   getIt.registerLazySingleton<UserDataRebo>(()=>UserDataRebo(getIt<ApiService>()));
   getIt.registerLazySingleton<LogOutRebo>(()=>LogOutRebo(getIt<ApiService>()));
+  getIt.registerLazySingleton<UpdateUserRebo>(()=>UpdateUserRebo(getIt<ApiService>()));
+
   getIt.registerFactory<UserCubit>(()=>UserCubit(getIt<UserDataRebo>(),getIt<LogOutRebo>()));
+  getIt.registerFactory<UpdateUSerCubit>(()=>UpdateUSerCubit(getIt<UpdateUserRebo>()));
+
+
+
 
 
 }

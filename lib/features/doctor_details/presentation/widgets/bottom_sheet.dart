@@ -23,7 +23,7 @@ void showAppointmentBottomSheet(BuildContext context,int id) {
     ),
     isScrollControlled: true,
     builder: (context) {
-      return BlocProvider.value( // ✅ تمرير الـ Cubit هنا
+      return BlocProvider.value(
         value: doctorCubit,
         child: Container(
           height: 300.h,
