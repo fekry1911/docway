@@ -12,16 +12,18 @@ class IconAndInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: GestureDetector(
-        onTap: onPreesed,
-        child: CircleAvatar(
-          backgroundColor: backColor,//Color(0xffEAF2FF),
-          radius: 40.r,child: Image.asset("$image",fit: BoxFit.cover,),
+    return GestureDetector(
+      onTap: onPreesed,
+      child: ListTile(
+        leading: GestureDetector(
+          child: CircleAvatar(
+            backgroundColor: backColor,//Color(0xffEAF2FF),
+            radius: 40.r,child: Image.asset("$image",fit: BoxFit.cover,),
+          ),
         ),
-      ),
-      title: Text('$data',style: TextThemes.font14BlackSemiBold.copyWith(color: Color(0xff242424)),),
+        title: Text('$data',style: TextThemes.font14BlackSemiBold.copyWith(color: Color(0xff242424)),),
 
+      ),
     );
   }
 }
