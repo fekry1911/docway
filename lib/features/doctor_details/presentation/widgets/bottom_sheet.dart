@@ -41,8 +41,8 @@ void showAppointmentBottomSheet(BuildContext context,int id) {
                   children: [
                     Center(
                       child: Container(
-                        width: 50,
-                        height: 5,
+                        width: 50.w,
+                        height: 5.h,
                         decoration: BoxDecoration(
                           color: Colors.grey[400],
                           borderRadius: BorderRadius.circular(10),

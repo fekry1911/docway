@@ -11,14 +11,13 @@ import '../../../../../core/models/doctor/doctor_response_model.dart' show Data;
 import '../../../../../core/rebos/doctor_rebo.dart';
 import '../../../../login_screen/logic/cubit/login_cubit.dart';
 import '../../../../login_screen/presentation/login.dart';
-import '../../../data/rebo/logout_rebo.dart';
+import '../../../../user_data/data/rebo/logout_rebo.dart';
 
 
 class DoctorHomeCubit extends Cubit<DoctorHomeStates> {
   DoctorRebo doctorRebo;
-  LogOutRebo logOutRebo;
 
-  DoctorHomeCubit(this.doctorRebo,this.logOutRebo) : super(DoctorHomeStates.initial());
+  DoctorHomeCubit(this.doctorRebo) : super(DoctorHomeStates.initial());
 
   bool isLoading = false;
   List<Data> allDoctors = [];
@@ -45,17 +44,5 @@ class DoctorHomeCubit extends Cubit<DoctorHomeStates> {
         emit(DoctorHomeStates.error(message: error.apiErrorModel.message!));
       },
     );
-  }
-  Future<void> LogOut(context)async {
-    emit(DoctorHomeStates.loadingLogOut());
-    final result=await logOutRebo.LogOut();
-    
-    result.when(success: (success){
-      CacheHelper.removeString(key: 'token');
-      emit(DoctorHomeStates.successLogOut());
-    },
-        error: (error){
-      
-    });
   }
 }
