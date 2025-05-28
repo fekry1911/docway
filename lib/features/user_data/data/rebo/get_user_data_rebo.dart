@@ -6,7 +6,6 @@ import '../../../../core/networking/api_error_handler.dart';
 
 class UserDataRebo {
   ApiService apiService;
-
   UserDataRebo(this.apiService);
 
   Future<ApiResult<UserResponse>> getUserData() async {

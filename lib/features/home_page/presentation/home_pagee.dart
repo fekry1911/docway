@@ -1,22 +1,22 @@
 import 'package:docway/features/home_page/presentation/widgets/find_card.dart';
 import 'package:docway/features/home_page/presentation/widgets/speciality_part.dart';
+import 'package:docway/features/user_data/logic/cubit/get_user_cubit.dart';
+import 'package:docway/features/user_data/presentaion/user_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../core/di/debendency_injection.dart';
 import '../../../core/local_shared/cache_helper.dart';
-import '../../../core/shared/cubit/cubit_specialization/specializaton_states.dart' as specialization;
+import '../../../core/shared/cubit/cubit_specialization/specializaton_states.dart'
+    as specialization;
 import '../../../core/shared/cubit/cubit_specialization/sprcialization_cubit.dart';
+import '../../../core/shared_widgets/card.dart';
 import '../../../core/theme/text_themes/text.dart';
 import '../../all_speciali/prsentation/all_specialization.dart';
-import '../../doctor_details/logic/cubit/doctor_details_cubit.dart';
-import '../../doctor_details/presentation/doctor_details_ui.dart';
 import '../../home/logic/cubit/doctor_cubit.dart';
 import '../../home/presentation/home.dart';
-import '../../../core/shared_widgets/card.dart';
-import '../../login_screen/logic/cubit/login_cubit.dart';
-import '../../login_screen/presentation/login.dart';
 import '../logic/cubit/cubit_gethomedoctors/cubit.dart';
 import '../logic/cubit/cubit_gethomedoctors/states.dart';
 
@@ -40,7 +40,10 @@ class HomePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Hi , ${CacheHelper.getString(key: "name")}", style: TextThemes.font18BlackBold),
+                Text(
+                  "Hi , ${CacheHelper.getString(key: "name")}",
+                  style: TextThemes.font18BlackBold,
+                ),
                 SizedBox(height: 5.h),
                 Text("How Are you Today?", style: TextThemes.font11GreyRegular),
               ],
@@ -57,13 +60,18 @@ class HomePage extends StatelessWidget {
 
                 IconButton(
                   onPressed: () {
-                    context.read<DoctorHomeCubit>().LogOut(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder:
+                            (context) => BlocProvider(
+                              create: (context) => getIt<UserCubit>()..getAiiUserData(),
+                              child: UserData(),
+                            ),
+                      ),
+                    );
                   },
-                  icon: Icon(
-                    Icons.notifications_none,
-                    color: Colors.black,
-                    size: 27.r,
-                  ),
+                  icon: Icon(Icons.person, color: Colors.black, size: 27.r),
                 ),
               ],
             ),
@@ -89,31 +97,31 @@ class HomePage extends StatelessWidget {
                         MaterialPageRoute(
                           builder:
                               (context) => BlocProvider(
-                            create:
-                                (BuildContext context) =>
-                            getIt<SpecializationCubit>()..getSpecialization(),
-                            child: AllSpecialization(),
-                          ),
+                                create:
+                                    (BuildContext context) =>
+                                        getIt<SpecializationCubit>()
+                                          ..getSpecialization(),
+                                child: AllSpecialization(),
+                              ),
                         ),
                       );
-
                     },
                     child: Text("see All", style: TextThemes.font12BlueRegular),
                   ),
                 ],
               ),
               SizedBox(height: 16.h),
-              BlocConsumer<SpecializationCubit,specialization.SpecializationStates>(
+              BlocConsumer<
+                SpecializationCubit,
+                specialization.SpecializationStates
+              >(
                 builder: (context, state) {
-
-                   if(state is specialization.Loading){
+                  if (state is specialization.Loading) {
                     return Center(child: CircularProgressIndicator());
-                  }
-                  else{
+                  } else {
                     Center(child: Text("you have to Login Again"));
                   }
-                   return SpecialityPart();
-
+                  return SpecialityPart();
                 },
                 listener: (context, state) {},
               ),
@@ -157,24 +165,6 @@ class HomePage extends StatelessWidget {
                       child: const Center(child: CircularProgressIndicator()),
                     );
                   }
-                  if (state is Error2) {
-                    print(state.message);
-                    if (state.message.contains("Unauthorized")) {
-                      CacheHelper.removeString(key: 'token');
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder:
-                              (context) => BlocProvider(
-                                create:
-                                    (BuildContext context) =>
-                                        getIt<LoginCubit>(),
-                                child: LoginScreen(),
-                              ),
-                        ),
-                      );
-                    }
-                  }
                   return Expanded(
                     child: ListView.separated(
                       itemBuilder:
@@ -183,7 +173,8 @@ class HomePage extends StatelessWidget {
                             name: cubit.allDoctors[index].name,
                             specialize:
                                 cubit.allDoctors[index].specialization!.name!,
-                            degree: cubit.allDoctors[index].degree, id: cubit.allDoctors[index].id,
+                            degree: cubit.allDoctors[index].degree,
+                            id: cubit.allDoctors[index].id,
                           ),
                       itemCount: 10,
                       shrinkWrap: true,
@@ -195,32 +186,6 @@ class HomePage extends StatelessWidget {
                 },
                 listener:
                     (BuildContext context, DoctorHomeStates<dynamic> state) {},
-              ),
-              BlocListener<DoctorHomeCubit, DoctorHomeStates>(
-                child: SizedBox(),
-                listener: (context, state) {
-                  if (state is Loading1) {
-                    showDialog(
-                      context: context,
-                      builder:
-                          (context) =>
-                              Center(child: CircularProgressIndicator()),
-                    );
-                  }
-                  if (state is Success1) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder:
-                            (context) => BlocProvider(
-                              create:
-                                  (BuildContext context) => getIt<LoginCubit>(),
-                              child: LoginScreen(),
-                            ),
-                      ),
-                    );
-                  }
-                },
               ),
             ],
           ),
