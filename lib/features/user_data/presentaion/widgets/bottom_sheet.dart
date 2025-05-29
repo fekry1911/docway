@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/di/debendency_injection.dart';
 import '../../../../core/networking/api_result.dart';
 import '../../../../core/theme/text_themes/text.dart';
+import '../../../login_screen/presentation/widgets/errr_setup.dart';
 import '../../data/models/user_request/user_request_update_model.dart';
 import '../../logic/cubit/get_user_cubit.dart';
 import '../../logic/update_user_cubit/update_user_cubit.dart';
@@ -43,10 +45,8 @@ void showBottomSheet1(BuildContext context) {
             }
 
             if (state is updateUser.Error) {
-              Navigator.pop(context); // Close dialog
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text("Try Again later")),
-              );
+              setupErrorState(context, state.message);
+
             }
 
             if (state is updateUser.Success) {
@@ -94,6 +94,9 @@ void showBottomSheet1(BuildContext context) {
                       style: TextThemes.font14BlackSemiBold,
                       keyboardType: TextInputType.name,
                       controller: nameController,
+                      maxLength: 22,
+                      inputFormatters: [
+                        LengthLimitingTextInputFormatter(22), ],
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: color,
@@ -127,6 +130,10 @@ void showBottomSheet1(BuildContext context) {
                       style: TextThemes.font14BlackSemiBold,
                       keyboardType: TextInputType.phone,
                       controller: phoneController,
+                      maxLength: 11,
+                      inputFormatters: [
+                        LengthLimitingTextInputFormatter(11),
+                      ],
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: color,
