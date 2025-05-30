@@ -8,7 +8,6 @@ import 'core/di/debendency_injection.dart';
 import 'core/generated/codegen_loader.g.dart';
 import 'core/local_shared/cache_helper.dart';
 import 'core/shared/cubit/bloc_obsererer.dart';
-import 'features/doctor_details/presentation/doctor_details_ui.dart';
 import 'features/spalsh/presentation/splash.dart';
 
 

@@ -14,14 +14,12 @@ import '../../../core/theme/colors/colors.dart';
 import '../../../core/theme/text_themes/text.dart';
 import '../../login_screen/logic/cubit/login_cubit.dart';
 import '../../login_screen/presentation/login.dart';
-import '../../login_screen/presentation/widgets/already_have_text.dart';
-import '../../login_screen/presentation/widgets/email_password.dart';
 import '../../login_screen/presentation/widgets/term_text.dart';
 import '../cubit/register_cubit.dart';
 import '../cubit/register_state.dart';
 
 class Register extends StatefulWidget {
-  Register({super.key});
+  const Register({super.key});
 
   @override
   State<Register> createState() => _RegisterState();
@@ -65,7 +63,7 @@ class _RegisterState extends State<Register> {
                   Checkbox(
                     value: false,
                     onChanged: (bool? value) {},
-                    fillColor: MaterialStateProperty.all(Colors.white),
+                    fillColor: WidgetStateProperty.all(Colors.white),
                     side: BorderSide(color: AppColors.strongGrey),
                   ),
                   Text(

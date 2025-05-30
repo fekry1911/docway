@@ -10,8 +10,6 @@ import '../../../core/shared/cubit/cubit_specialization/sprcialization_cubit.dar
 import '../../../core/shared/cubit/cubit_specialization_details/specialization_details_cubit.dart';
 import '../../../core/shared_widgets/custom_shape.dart';
 import '../../../core/theme/text_themes/text.dart';
-import '../../home_page/logic/cubit/cubit_gethomedoctors/cubit.dart';
-import '../../home_page/presentation/home_pagee.dart';
 import '../../specialization_doctors/presentation/specialization_doctor_ui.dart';
 
 class AllSpecialization extends StatelessWidget {

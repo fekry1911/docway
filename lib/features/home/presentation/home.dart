@@ -3,12 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/di/debendency_injection.dart';
-import '../../../core/shared/cubit/cubit_specialization/sprcialization_cubit.dart';
 import '../../../core/shared_widgets/card.dart';
 import '../../../core/theme/text_themes/text.dart';
-import '../../home_page/logic/cubit/cubit_gethomedoctors/cubit.dart';
-import '../../home_page/presentation/home_pagee.dart';
 import '../logic/cubit/doctor_cubit.dart';
 import '../logic/cubit/doctor_states.dart';
 

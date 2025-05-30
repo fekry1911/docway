@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/di/debendency_injection.dart';
-import '../../../../core/local_shared/cache_helper.dart';
 import '../../../../core/theme/text_themes/text.dart';
 
 class FindCard extends StatelessWidget {
