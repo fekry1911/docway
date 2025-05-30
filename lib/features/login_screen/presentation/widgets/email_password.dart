@@ -9,21 +9,20 @@ import '../../../../core/regexs/regexs.dart';
 import '../../../../core/shared_widgets/shared_text_form_field.dart';
 import '../../logic/cubit/login_cubit.dart';
 
-class EmailAndPassword extends StatefulWidget {
-  const EmailAndPassword({super.key});
+class EmailAndPassword extends StatelessWidget {
+   EmailAndPassword({super.key,required this.onTap,required this.isSecure});
+   final VoidCallback onTap;
+   final bool isSecure;
 
-  @override
-  State<EmailAndPassword> createState() => _EmailAndPasswordState();
-}
 
-class _EmailAndPasswordState extends State<EmailAndPassword> {
-  @override
+   @override
   Widget build(BuildContext context) {
     return Form(
       key: context.read<LoginCubit>().formKey,
       child: Column(
         children: [
           SharedTextFormField(
+            prefixIcon: Icon(Icons.email,color: Colors.blue,),
             controller: context.read<LoginCubit>().emailController,
             hintText: LocaleKeys.auth_email.tr(),
             validator: (value) {
@@ -34,6 +33,8 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           ),
           SizedBox(height: 16.h),
           SharedTextFormField(
+            suffixIcon: IconButton(onPressed: onTap, icon:!isSecure?Icon(Icons.visibility,color: Colors.blue,):Icon(Icons.visibility_off,color: Colors.blue,),),
+            prefixIcon: Icon(Icons.password,color: Colors.blue,),
             controller: context.read<LoginCubit>().passwordController,
             hintText: LocaleKeys.auth_password.tr(),
             validator: (value) {
@@ -41,7 +42,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                 return "Please Enter Valid Email";
               }
             },
-            isObscureText: true,
+            isObscureText: isSecure,
           ),
           SizedBox(height: 16.h),
         ],

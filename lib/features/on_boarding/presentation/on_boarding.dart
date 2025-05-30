@@ -67,16 +67,16 @@ class OnBoarding extends StatelessWidget {
                     text: LocaleKeys.on_boarding_button_text,
                     onTab: () {
                       CacheHelper.putBoolean(key: "on_boarding", value: true);
+
+                      final loginCubit = getIt<LoginCubit>(); // انشئه مرة واحدة
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder:
-                              (context) => BlocProvider(
-                                create:
-                                    (BuildContext context) =>
-                                        getIt<LoginCubit>(),
-                                child: LoginScreen(),
-                              ),
+                          builder: (_) => BlocProvider.value( // استخدم value بدل create
+                            value: loginCubit,
+                            child: LoginScreen(),
+                          ),
                         ),
                       );
                     },

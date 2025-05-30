@@ -23,6 +23,7 @@ mixin _$LoginStates<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String message) error,
+    required TResult Function(bool isSecure) toggleSecure,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -30,6 +31,7 @@ mixin _$LoginStates<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String message)? error,
+    TResult? Function(bool isSecure)? toggleSecure,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -37,6 +39,7 @@ mixin _$LoginStates<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String message)? error,
+    TResult Function(bool isSecure)? toggleSecure,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,6 +48,7 @@ mixin _$LoginStates<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Toggle<T> value) toggleSecure,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -52,6 +56,7 @@ mixin _$LoginStates<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Toggle<T> value)? toggleSecure,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -59,6 +64,7 @@ mixin _$LoginStates<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(Toggle<T> value)? toggleSecure,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -132,6 +138,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String message) error,
+    required TResult Function(bool isSecure) toggleSecure,
   }) {
     return initial();
   }
@@ -143,6 +150,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String message)? error,
+    TResult? Function(bool isSecure)? toggleSecure,
   }) {
     return initial?.call();
   }
@@ -154,6 +162,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String message)? error,
+    TResult Function(bool isSecure)? toggleSecure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -169,6 +178,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Toggle<T> value) toggleSecure,
   }) {
     return initial(this);
   }
@@ -180,6 +190,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Toggle<T> value)? toggleSecure,
   }) {
     return initial?.call(this);
   }
@@ -191,6 +202,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(Toggle<T> value)? toggleSecure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -251,6 +263,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String message) error,
+    required TResult Function(bool isSecure) toggleSecure,
   }) {
     return loading();
   }
@@ -262,6 +275,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String message)? error,
+    TResult? Function(bool isSecure)? toggleSecure,
   }) {
     return loading?.call();
   }
@@ -273,6 +287,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String message)? error,
+    TResult Function(bool isSecure)? toggleSecure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -288,6 +303,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Toggle<T> value) toggleSecure,
   }) {
     return loading(this);
   }
@@ -299,6 +315,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Toggle<T> value)? toggleSecure,
   }) {
     return loading?.call(this);
   }
@@ -310,6 +327,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(Toggle<T> value)? toggleSecure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -398,6 +416,7 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String message) error,
+    required TResult Function(bool isSecure) toggleSecure,
   }) {
     return success(data);
   }
@@ -409,6 +428,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String message)? error,
+    TResult? Function(bool isSecure)? toggleSecure,
   }) {
     return success?.call(data);
   }
@@ -420,6 +440,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String message)? error,
+    TResult Function(bool isSecure)? toggleSecure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -435,6 +456,7 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Toggle<T> value) toggleSecure,
   }) {
     return success(this);
   }
@@ -446,6 +468,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Toggle<T> value)? toggleSecure,
   }) {
     return success?.call(this);
   }
@@ -457,6 +480,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(Toggle<T> value)? toggleSecure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -553,6 +577,7 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String message) error,
+    required TResult Function(bool isSecure) toggleSecure,
   }) {
     return error(message);
   }
@@ -564,6 +589,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String message)? error,
+    TResult? Function(bool isSecure)? toggleSecure,
   }) {
     return error?.call(message);
   }
@@ -575,6 +601,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String message)? error,
+    TResult Function(bool isSecure)? toggleSecure,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -590,6 +617,7 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Toggle<T> value) toggleSecure,
   }) {
     return error(this);
   }
@@ -601,6 +629,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Toggle<T> value)? toggleSecure,
   }) {
     return error?.call(this);
   }
@@ -612,6 +641,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(Toggle<T> value)? toggleSecure,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -630,5 +660,167 @@ abstract class Error<T> implements LoginStates<T> {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ToggleImplCopyWith<T, $Res> {
+  factory _$$ToggleImplCopyWith(
+    _$ToggleImpl<T> value,
+    $Res Function(_$ToggleImpl<T>) then,
+  ) = __$$ToggleImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({bool isSecure});
+}
+
+/// @nodoc
+class __$$ToggleImplCopyWithImpl<T, $Res>
+    extends _$LoginStatesCopyWithImpl<T, $Res, _$ToggleImpl<T>>
+    implements _$$ToggleImplCopyWith<T, $Res> {
+  __$$ToggleImplCopyWithImpl(
+    _$ToggleImpl<T> _value,
+    $Res Function(_$ToggleImpl<T>) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of LoginStates
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? isSecure = null}) {
+    return _then(
+      _$ToggleImpl<T>(
+        isSecure:
+            null == isSecure
+                ? _value.isSecure
+                : isSecure // ignore: cast_nullable_to_non_nullable
+                    as bool,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$ToggleImpl<T> implements Toggle<T> {
+  const _$ToggleImpl({required this.isSecure});
+
+  @override
+  final bool isSecure;
+
+  @override
+  String toString() {
+    return 'LoginStates<$T>.toggleSecure(isSecure: $isSecure)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleImpl<T> &&
+            (identical(other.isSecure, isSecure) ||
+                other.isSecure == isSecure));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isSecure);
+
+  /// Create a copy of LoginStates
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ToggleImplCopyWith<T, _$ToggleImpl<T>> get copyWith =>
+      __$$ToggleImplCopyWithImpl<T, _$ToggleImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data) success,
+    required TResult Function(String message) error,
+    required TResult Function(bool isSecure) toggleSecure,
+  }) {
+    return toggleSecure(isSecure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data)? success,
+    TResult? Function(String message)? error,
+    TResult? Function(bool isSecure)? toggleSecure,
+  }) {
+    return toggleSecure?.call(isSecure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data)? success,
+    TResult Function(String message)? error,
+    TResult Function(bool isSecure)? toggleSecure,
+    required TResult orElse(),
+  }) {
+    if (toggleSecure != null) {
+      return toggleSecure(isSecure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(Toggle<T> value) toggleSecure,
+  }) {
+    return toggleSecure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(Toggle<T> value)? toggleSecure,
+  }) {
+    return toggleSecure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Error<T> value)? error,
+    TResult Function(Toggle<T> value)? toggleSecure,
+    required TResult orElse(),
+  }) {
+    if (toggleSecure != null) {
+      return toggleSecure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Toggle<T> implements LoginStates<T> {
+  const factory Toggle({required final bool isSecure}) = _$ToggleImpl<T>;
+
+  bool get isSecure;
+
+  /// Create a copy of LoginStates
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ToggleImplCopyWith<T, _$ToggleImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

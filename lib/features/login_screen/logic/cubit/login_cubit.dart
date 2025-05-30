@@ -18,6 +18,13 @@ class LoginCubit extends Cubit<LoginStates> {
 
   bool isLoading = false;
 
+  bool isSecure=true;
+  void toggleSecure(){
+    isSecure=!isSecure;
+    print(isSecure);
+    emit(LoginStates.toggleSecure(isSecure: isSecure));
+  }
+
   Future<void> login() async {
     emit(LoginStates.loading());
     final result = await loginRebo.Login(
