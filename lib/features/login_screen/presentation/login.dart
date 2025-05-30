@@ -45,7 +45,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: TextThemes.textGreyRegular14,
               ),
               SizedBox(height: 36.h),
-              EmailAndPassword(),
+              BlocConsumer<LoginCubit, LoginStates>(
+                builder: (context, state) {
+                  final cubit = context.watch<LoginCubit>();
+                  return EmailAndPassword(
+                    isSecure: cubit.isSecure,
+                    onTap: cubit.toggleSecure,
+                  );
+                },
+                listener: (BuildContext context, LoginStates<dynamic> state) {  },
+              ),
               Row(
                 children: [
                   Checkbox(
@@ -108,19 +117,31 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder:
-                                (context) => MultiBlocProvider(providers: [
-                              BlocProvider(create: (context)=>getIt<DoctorHomeCubit>()..getAllDocs()),
-                              BlocProvider(create: (context)=>getIt<SpecializationCubit>()..getSpecialization()),
-
-                            ], child: HomePage())
+                          builder:
+                              (context) => MultiBlocProvider(
+                                providers: [
+                                  BlocProvider(
+                                    create:
+                                        (context) =>
+                                            getIt<DoctorHomeCubit>()
+                                              ..getAllDocs(),
+                                  ),
+                                  BlocProvider(
+                                    create:
+                                        (context) =>
+                                            getIt<SpecializationCubit>()
+                                              ..getSpecialization(),
+                                  ),
+                                ],
+                                child: HomePage(),
+                              ),
                         ),
                       );
                     },
                     error: (String message) {
                       setupErrorState(context, message);
                     },
-                    initial: () {},
+                    initial: () {}, toggleSecure: (isSecure) {  },
                   );
                 },
               ),
