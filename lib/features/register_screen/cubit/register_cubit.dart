@@ -18,6 +18,12 @@ class RegisterCubit extends Cubit<RegisterStates>{
 
   final formKey = GlobalKey<FormState>();
 
+  bool isSecure=true;
+  void changeSecure(){
+    isSecure=!isSecure;
+    emit(RegisterStates.changeSecure(isSecure));
+  }
+
 
   RegisterRebo registerRebo;
   RegisterCubit(this.registerRebo) : super(RegisterStates.initial());

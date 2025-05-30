@@ -9,14 +9,11 @@ import '../../../../core/regexs/regexs.dart';
 import '../../../../core/shared_widgets/shared_text_form_field.dart';
 import '../../cubit/register_cubit.dart';
 
-class EmailAndPassword1 extends StatefulWidget {
-  const EmailAndPassword1({super.key});
+class EmailAndPassword1 extends StatelessWidget {
+  EmailAndPassword1({super.key,required this.onTap,required this.isSecure});
+  final VoidCallback onTap;
+  final bool isSecure;
 
-  @override
-  State<EmailAndPassword1> createState() => _EmailAndPasswordState();
-}
-
-class _EmailAndPasswordState extends State<EmailAndPassword1> {
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -24,6 +21,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword1> {
       child: Column(
         children: [
           SharedTextFormField(
+            prefixIcon: Icon(Icons.email,color: Colors.blue,),
             controller: context.read<RegisterCubit>().email,
             hintText: LocaleKeys.auth_email.tr(),
             validator: (value) {
@@ -35,6 +33,8 @@ class _EmailAndPasswordState extends State<EmailAndPassword1> {
 
           SizedBox(height: 16.h),
           SharedTextFormField(
+            suffixIcon: IconButton(onPressed: onTap, icon:!isSecure?Icon(Icons.visibility,color: Colors.blue,):Icon(Icons.visibility_off,color: Colors.blue,),),
+            prefixIcon: Icon(Icons.password,color: Colors.blue,),
             controller: context.read<RegisterCubit>().password,
             hintText: LocaleKeys.auth_password.tr(),
             validator: (value) {
@@ -42,10 +42,12 @@ class _EmailAndPasswordState extends State<EmailAndPassword1> {
                 return "Please Enter Valid Email";
               }
             },
-            isObscureText: true,
+            isObscureText: isSecure,
           ),
           SizedBox(height: 16.h),
           SharedTextFormField(
+            suffixIcon: IconButton(onPressed: onTap, icon:!isSecure?Icon(Icons.visibility,color: Colors.blue,):Icon(Icons.visibility_off,color: Colors.blue,),),
+            prefixIcon: Icon(Icons.password,color: Colors.blue,),
             controller: context.read<RegisterCubit>().confirmPassword,
             hintText: "confirmPassword",
             validator: (value) {
@@ -53,10 +55,11 @@ class _EmailAndPasswordState extends State<EmailAndPassword1> {
                 return "Please Enter Valid Email";
               }
             },
-            isObscureText: true,
+            isObscureText: isSecure,
           ),
           SizedBox(height: 16.h),
           SharedTextFormField(
+            prefixIcon: Icon(Icons.phone,color: Colors.blue,),
             controller: context.read<RegisterCubit>().phone,
             hintText:"phone",
             validator: (value) {
@@ -67,6 +70,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword1> {
           ),
           SizedBox(height: 16.h),
           SharedTextFormField(
+            prefixIcon: Icon(Icons.person,color: Colors.blue,),
             controller: context.read<RegisterCubit>().name,
             hintText:"name",
             validator: (value) {
