@@ -49,7 +49,17 @@ class _RegisterState extends State<Register> {
                 style: TextThemes.textGreyRegular14,
               ),
               SizedBox(height: 36.h),
-              EmailAndPassword1(),
+              BlocConsumer<RegisterCubit, RegisterStates>(
+                builder: (context, state) {
+                  final cubit = context.watch<RegisterCubit>();
+                  return EmailAndPassword1(
+                    isSecure: cubit.isSecure,
+                    onTap: cubit.changeSecure,
+                  );
+                },
+                listener: (BuildContext context, RegisterStates<dynamic> state) {  },
+              ),
+
               Row(
                 children: [
                   Checkbox(
@@ -140,7 +150,7 @@ class _RegisterState extends State<Register> {
                         },
                       );
                     },
-                    initial: () {},
+                    initial: () {}, changeSecure: (bool isSecure) {  },
                   );
                 },
               ),
