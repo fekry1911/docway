@@ -1,5 +1,4 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +9,7 @@ import '../../../../core/shared_widgets/shared_text_form_field.dart';
 import '../../logic/cubit/login_cubit.dart';
 
 class EmailAndPassword extends StatelessWidget {
-   EmailAndPassword({super.key,required this.onTap,required this.isSecure});
+   const EmailAndPassword({super.key,required this.onTap,required this.isSecure});
    final VoidCallback onTap;
    final bool isSecure;
 
@@ -29,6 +28,7 @@ class EmailAndPassword extends StatelessWidget {
               if (value!.isEmpty && !isValidEmail(value)) {
                 return "Please Enter Valid Email";
               }
+              return null;
             },
           ),
           SizedBox(height: 16.h),
@@ -41,6 +41,7 @@ class EmailAndPassword extends StatelessWidget {
               if (value!.isEmpty) {
                 return "Please Enter Valid Email";
               }
+              return null;
             },
             isObscureText: isSecure,
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../theme/colors/colors.dart';
@@ -17,9 +18,11 @@ class SharedTextFormField extends StatelessWidget {
   final Color? backgroundColor;
   final TextEditingController? controller;
   final String? Function(String?) validator;
+  final int? maxLength;
 
   const SharedTextFormField({
     super.key,
+    this.maxLength,
     this.contentPadding,
     this.focusedBorder,
     this.enabledBorder,
@@ -41,6 +44,9 @@ class SharedTextFormField extends StatelessWidget {
       controller: controller,
       obscureText: isObscureText ?? false,
       validator: validator,
+      maxLength: maxLength,
+      inputFormatters: [
+        LengthLimitingTextInputFormatter(maxLength), ],
       decoration: InputDecoration(
         isDense: true,
         contentPadding: contentPadding ??

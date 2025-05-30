@@ -21,9 +21,9 @@ class DoctorDetailsCubit extends Cubit<DoctorDetailsStates>{
       emit(DoctorDetailsStates.error(message: error.apiErrorModel.message!));
     });
   }
-  Future<void> makeAppointment(int id,String start_time,String notes)async{
+  Future<void> makeAppointment(int id,String startTime,String notes)async{
     emit(DoctorDetailsStates.loading1());
-    final result=await appointmentRequestRebo.makeAppointment(AppointmentRequestModel(id, start_time, notes));
+    final result=await appointmentRequestRebo.makeAppointment(AppointmentRequestModel(id, startTime, notes));
     result.when(success: (success){
       emit(DoctorDetailsStates.success1());
     }, error: (error){

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,7 +24,7 @@ void showAppointmentBottomSheet(BuildContext context,int id) {
     builder: (context) {
       return BlocProvider.value(
         value: doctorCubit,
-        child: Container(
+        child: SizedBox(
           height: 300.h,
           child: Padding(
             padding: EdgeInsets.only(

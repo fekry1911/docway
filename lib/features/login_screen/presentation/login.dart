@@ -19,7 +19,7 @@ import '../logic/cubit/login_cubit.dart';
 import '../logic/cubit/login_states.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({super.key});
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Checkbox(
                     value: false,
                     onChanged: (bool? value) {},
-                    fillColor: MaterialStateProperty.all(Colors.white),
+                    fillColor: WidgetStateProperty.all(Colors.white),
                     side: BorderSide(color: AppColors.strongGrey),
                   ),
                   Text(

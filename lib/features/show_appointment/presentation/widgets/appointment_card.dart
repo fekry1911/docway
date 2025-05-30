@@ -1,14 +1,10 @@
 import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:docway/features/doctor_details/logic/cubit/doctor_details_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/di/debendency_injection.dart';
 import '../../../../core/theme/text_themes/text.dart';
-import '../../../doctor_details/presentation/doctor_details_ui.dart';
 
 
 

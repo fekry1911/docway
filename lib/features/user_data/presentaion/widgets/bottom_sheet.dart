@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/di/debendency_injection.dart';
-import '../../../../core/networking/api_result.dart';
 import '../../../../core/theme/text_themes/text.dart';
 import '../../../login_screen/presentation/widgets/errr_setup.dart';
 import '../../data/models/user_request/user_request_update_model.dart';
@@ -16,7 +14,7 @@ import '../user_ui.dart';
 
 void showBottomSheet1(BuildContext context) {
   final cubit=context.read<UpdateUSerCubit>();
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
@@ -78,7 +76,7 @@ void showBottomSheet1(BuildContext context) {
               top: 15.h,
             ),
             child: Form(
-              key: _formKey,
+              key: formKey,
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -157,7 +155,7 @@ void showBottomSheet1(BuildContext context) {
                           borderRadius: BorderRadius.circular(10.r),
                         ),
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
+                          if (formKey.currentState!.validate()) {
                             cubit.updateUser(
                               UserRequestModel(
                                 name: nameController.text,
