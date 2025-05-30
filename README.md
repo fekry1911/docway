@@ -33,7 +33,6 @@
 | Flutter            | Cross-platform UI development        |
 | Dart               | Main programming language            |
 | Bloc / Cubit       | State management                     |
-| Firebase           | Authentication & database            |
 | Dio                | API communication                    |
 | Easy Localization  | Language and localization handling   |
 | Shared Preferences | Local data caching                   |
@@ -54,3 +53,13 @@ flutter pub get
 
 # Run the app
 flutter run
+
+### 👨‍💻 About the Developer
+
+**Abdulrahman Fekry**  
+Flutter Developer from Cairo, Egypt  
+Have experience in cross-platform mobile app development  
+
+- 🔗 [LinkedIn Profile](https://www.linkedin.com/in/abdulrahman-fekry-a641531a1)  
+- 🧑‍💻 [GitHub Profile](https://github.com/fekry1911)
+
