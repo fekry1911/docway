@@ -1,3 +1,4 @@
+
 # 📱 DocWay App
 
 **DocWay** is a medical mobile application that allows users to browse doctors, view specializations, and book appointments with ease. Built with Flutter, it offers a seamless cross-platform experience on both Android and iOS.
@@ -38,6 +39,17 @@
 | Shared Preferences | Local data caching                   |
 
 ---
+
+### 🖼️ Screenshots
+
+![on_boarding](https://github.com/user-attachments/assets/2da77444-399e-464f-a3a3-2784371f9b95)
+![login](https://github.com/user-attachments/assets/5092bb44-1fa0-41b5-a564-a5d426807c85)
+![register](https://github.com/user-attachments/assets/c5c5a3e9-3dd8-4d92-8b0c-fd90b9050a77)
+![home](https://github.com/user-attachments/assets/f043e3c2-d779-4980-8a32-e8f786bd7e63)
+![specialize doctors](https://github.com/user-attachments/assets/9531fa44-1539-4de2-ba43-a2eb2b659077)
+![profile](https://github.com/user-attachments/assets/f68d5acb-1c37-4132-b92e-7df41272f028)
+
+
 
 ## ⚙️ How to Run the App
 
